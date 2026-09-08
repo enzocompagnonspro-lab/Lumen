@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "principle": "Journey progression is state-driven. The canonical map is never silently rewritten; interactive overlays expose actual state.",
+  "chambers": [
+    {
+      "id": "vision",
+      "roman": "I",
+      "label": "Vision",
+      "tagline": "Voir plus loin",
+      "order": 1,
+      "unlock": "DEFAULT",
+      "completion": {
+        "type": "article_sections",
+        "content": "sens-monde-incertain",
+        "required": 5
+      }
+    },
+    {
+      "id": "pensee",
+      "roman": "II",
+      "label": "Pensée",
+      "tagline": "Relier les idées",
+      "order": 2,
+      "unlock": "vision.complete"
+    },
+    {
+      "id": "obstacle",
+      "roman": "III",
+      "label": "Obstacle",
+      "tagline": "Transformer la résistance",
+      "order": 3,
+      "unlock": "FUTURE_CONTENT"
+    },
+    {
+      "id": "discipline",
+      "roman": "IV",
+      "label": "Discipline",
+      "tagline": "Bâtir le réel",
+      "order": 4,
+      "unlock": "FUTURE_CONTENT"
+    },
+    {
+      "id": "strategie",
+      "roman": "V",
+      "label": "Stratégie",
+      "tagline": "Façonner demain",
+      "order": 5,
+      "unlock": "FUTURE_CONTENT"
+    },
+    {
+      "id": "nuit",
+      "roman": "VI",
+      "label": "Nuit intérieure",
+      "tagline": "Explorer l’invisible",
+      "order": 6,
+      "unlock": "FUTURE_CONTENT"
+    },
+    {
+      "id": "transmission",
+      "roman": "VII",
+      "label": "Transmission",
+      "tagline": "Laisser une empreinte",
+      "order": 7,
+      "unlock": "FUTURE_CONTENT"
+    }
+  ],
+  "event_links": [
+    {
+      "event": "article_section_read",
+      "content": "sens-monde-incertain",
+      "chamber": "vision",
+      "rule": "1 distinct section = 1 progress step"
+    },
+    {
+      "event": "vision_complete",
+      "effect": "unlock:pensee"
+    }
+  ]
+}

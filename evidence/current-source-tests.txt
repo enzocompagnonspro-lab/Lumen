@@ -1,0 +1,21 @@
+test_assets_exist (test_lumen_os.TestLumenOS.test_assets_exist) ... ok
+test_canon (test_lumen_os.TestLumenOS.test_canon) ... ok
+test_cli_validation (test_lumen_os.TestLumenOS.test_cli_validation) ... ok
+test_human_gate (test_lumen_os.TestLumenOS.test_human_gate) ... ok
+test_journey_registry (test_lumen_os.TestLumenOS.test_journey_registry) ... ok
+test_journey_scene_markers (test_lumen_os.TestLumenOS.test_journey_scene_markers) ... ok
+test_living_registry (test_lumen_os.TestLumenOS.test_living_registry) ... ok
+test_canon_locked (test_prime_integration.TestPrimeIntegration.test_canon_locked) ... ok
+test_main_status_not_auto_advanced (test_prime_integration.TestPrimeIntegration.test_main_status_not_auto_advanced) ... ok
+test_prime_exists (test_prime_integration.TestPrimeIntegration.test_prime_exists) ... ok
+test_server_prime_routes (test_prime_integration.TestPrimeIntegration.test_server_prime_routes) ... ok
+test_sync_current_os (test_prime_integration.TestPrimeIntegration.test_sync_current_os) ... ok
+test_catalog_truth (test_real01.Real01.test_catalog_truth) ... ok
+test_historical_gate_untouched (test_real01.Real01.test_historical_gate_untouched) ... ok
+test_no_external_write_api (test_real01.Real01.test_no_external_write_api) ... ok
+test_validator (test_real01.Real01.test_validator) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 5.186s
+
+OK

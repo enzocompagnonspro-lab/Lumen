@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "SANCTUAIRE",
+      "file": "assets/canon/01_SANCTUAIRE.png",
+      "description": "Desktop canonical home sanctuary",
+      "width": 1672,
+      "height": 941,
+      "sha256": "e056e7f7ab8b71cd82a05763d8390d61bc5afa50c5c50d1a34b21b90e1a72bb1",
+      "status": "CANON",
+      "immutable_reference": true
+    },
+    {
+      "id": "CARTE_DU_VOYAGE",
+      "file": "assets/canon/02_CARTE_DU_VOYAGE.png",
+      "description": "Seven-chamber journey map",
+      "width": 1672,
+      "height": 941,
+      "sha256": "e4713c3616a09e4295b35f45ab50f5b93df1999dbaad4ca03905d53636915179",
+      "status": "CANON",
+      "immutable_reference": true
+    },
+    {
+      "id": "BIBLIOTHEQUE",
+      "file": "assets/canon/03_BIBLIOTHEQUE.png",
+      "description": "Knowledge library",
+      "width": 1672,
+      "height": 941,
+      "sha256": "8ffbb5199e3113ec951d2c1ba369af1f631385c2f49bc854794f0382fb1bec74",
+      "status": "CANON",
+      "immutable_reference": true
+    },
+    {
+      "id": "DISCIPLINE",
+      "file": "assets/canon/04_DISCIPLINE_PROGRESSION.png",
+      "description": "Discipline and progression",
+      "width": 1672,
+      "height": 941,
+      "sha256": "ccdc533c739ba1ab8d577bd9e993f25fc54e8509261021baee8b4e07e65d5922",
+      "status": "CANON",
+      "immutable_reference": true
+    },
+    {
+      "id": "TROIS_PARCOURS",
+      "file": "assets/canon/05_TROIS_PARCOURS.png",
+      "description": "VOIR / COMPRENDRE / AGIR doors",
+      "width": 1672,
+      "height": 941,
+      "sha256": "110b98be54cadfa6f4d5f8d44e801ca0832dd1b236387d8a182d129ac9fae502",
+      "status": "CANON",
+      "immutable_reference": true
+    },
+    {
+      "id": "MOBILE_HOME",
+      "file": "assets/canon/06_MOBILE_HOME.png",
+      "description": "Mobile canonical home",
+      "width": 941,
+      "height": 1672,
+      "sha256": "879d2036c40f575dbaef6d85314112d3b6957bcbbade03706ad1c18990deaa64",
+      "status": "CANON",
+      "immutable_reference": true
+    },
+    {
+      "id": "ARTICLE_MONDE_LUCIDE",
+      "file": "assets/canon/07_ARTICLE_MONDE_LUCIDE.png",
+      "description": "Knowledge article view",
+      "width": 1672,
+      "height": 941,
+      "sha256": "ee746b98dc00ef246e81e6ff712c958c80dc54e2c1cf15415318bcfbb68111d4",
+      "status": "CANON",
+      "immutable_reference": true
+    },
+    {
+      "id": "RITUEL_MATIN",
+      "file": "assets/canon/08_RITUEL_MATIN.png",
+      "description": "Morning ritual",
+      "width": 1672,
+      "height": 941,
+      "sha256": "242f58e4ab45f1418866474c60633167b71d5c2a031e700779ae44b01da199c7",
+      "status": "CANON",
+      "immutable_reference": true
+    },
+    {
+      "id": "TRIPTYQUE",
+      "file": "assets/canon/09_TRIPTYQUE.png",
+      "description": "Campaign triptych",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "7fb3391c7d286084ea4563bff918a3863ce5192f0aaa56eac81dd73333065656",
+      "status": "CANON",
+      "immutable_reference": true
+    },
+    {
+      "id": "POSTER_VERTICAL",
+      "file": "assets/canon/10_POSTER_VERTICAL.png",
+      "description": "Vertical LUMEN key art",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "ac47b36ffebd90c24bca7613f881ccef28b8e89501cffc00755e474c2d2c611b",
+      "status": "CANON",
+      "immutable_reference": true
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "request": "analyse la progression de Vision et propose la prochaine action",
+  "routes": [
+    "JOURNEY_GUIDE",
+    "TRUTH_SYNTHESIZER"
+  ],
+  "model_policy": {
+    "selected_display_name": "GPT-5.6 Sol",
+    "tier": "PRIMARY_FALLBACK",
+    "frontier_available": false,
+    "observed_runtime_model": null,
+    "claim_verified": false
+  },
+  "knowledge_hits": [
+    {
+      "id": "chamber:pensee",
+      "node_type": "CHAMBER",
+      "title": "Pensée",
+      "evidence_status": "OBSERVED",
+      "canonical": 1,
+      "source_ref": "/mnt/data/LUMEN-OPERATING-SYSTEM-V1.5.2/registry/journey.json",
+      "payload": {
+        "id": "pensee",
+        "roman": "II",
+        "label": "Pensée",
+        "tagline": "Relier les idées",
+        "order": 2,
+        "unlock": "vision.complete"
+      }
+    },
+    {
+      "id": "chamber:vision",
+      "node_type": "CHAMBER",
+      "title": "Vision",
+      "evidence_status": "OBSERVED",
+      "canonical": 1,
+      "source_ref": "/mnt/data/LUMEN-OPERATING-SYSTEM-V1.5.2/registry/journey.json",
+      "payload": {
+        "id": "vision",
+        "roman": "I",
+        "label": "Vision",
+        "tagline": "Voir plus loin",
+        "order": 1,
+        "unlock": "DEFAULT",
+        "completion": {
+          "type": "article_sections",
+          "content": "sens-monde-incertain",
+          "required": 5
+        }
+      }
+    },
+    {
+      "id": "content:connaissance-action",
+      "node_type": "CONTENT",
+      "title": "De la connaissance à l’action",
+      "evidence_status": "OBSERVED",
+      "canonical": 1,
+      "source_ref": "/mnt/data/LUMEN-OPERATING-SYSTEM-V1.5.2/registry/knowledge.json",
+      "payload": {
+        "id": "connaissance-action",
+        "title": "De la connaissance à l’action",
+        "subtitle": "8 chapitres · 3h45",
+        "category": "discipline",
+        "type": "PARCOURS",
+        "status": "ACTIVE_METADATA"
+      }
+    },
+    {
+      "id": "canon:lumen",
+      "node_type": "CANON",
+      "title": "LUMEN Canon",
+      "evidence_status": "OBSERVED",
+      "canonical": 1,
+      "source_ref": "/mnt/data/LUMEN-OPERATING-SYSTEM-V1.5.2/config/canon.json",
+      "payload": {
+        "name": "LUMEN",
+        "version": "1.4",
+        "status": "CANON_LOCKED_T008",
+        "purpose": "Sanctuaire de connaissance et d'élévation par la compréhension et l'action.",
+        "primary_cycle": [
+          "ENTRER",
+          "OBSERVER",
+          "COMPRENDRE",
+          "GRAVER",
+          "AGIR",
+          "TRANSMETTRE"
+        ],
+        "paths": {
+          "VOIR": "Observer le réel",
+          "COMPRENDRE": "Relier les idées",
+          "AGIR": "Façonner demain"
+        },
+        "palette": {
+          "night": "#05070D",
+          "blue_black": "#0B1220",
+          "gold": "#CFAE6A"
+        },
+        "typography": {
+          "titles": "Cinzel",
+          "body": "Cormorant / refined serif-sans pairing"
+        },
+        "navigation": [
+          "ACCUEIL",
+          "JOURNEY",
+          "CONNAISSANCES",
+          "DISCIPLINE",
+          "REGLAGES"
+        ],
+        "community_enabled": false,
+        "visual_rules": [
+          "No silent redesign of a canonical visual",
+          "Canonical assets are immutable references; variants must be explicitly marked PROPOSITION",
+          "Semi-animated premium game-like 2.5D feeling",
+          "Dark blue-black architecture, restrained gold light, cinematic atmosphere",
+          "No generic SaaS dashboard aesthetic",
+          "No community section"
+        ],
+        "epistemic_labels": [
+          "SOURCE",
+          "FAIT",
+          "INTERPRETATION",
+          "SYMBOLE",
+          "PRATIQUE"
+        ],
+        "human_authority": [
+          "public release",
+          "canonical identity change",
+          "unbounded paid compute",
+          "external irreversible action"
+        ]
+      }
+    },
+    {
+      "id": "content:routines-exception",
+      "node_type": "CONTENT",
+      "title": "Routines d’exception",
+      "evidence_status": "OBSERVED",
+      "canonical": 1,
+      "source_ref": "/mnt/data/LUMEN-OPERATING-SYSTEM-V1.5.2/registry/knowledge.json",
+      "payload": {
+        "id": "routines-exception",
+        "title": "Routines d’exception",
+        "subtitle": "De l’intention à l’action",
+        "category": "discipline",
+        "type": "PRATIQUE",
+        "status": "ACTIVE_METADATA"
+      }
+    }
+  ],
+  "memory": [
+    {
+      "scope": "system",
+      "key": "lumen_os_status",
+      "evidence_status": "OBSERVED",
+      "provenance": "/mnt/data/LUMEN-OPERATING-SYSTEM-V1.5.2/state/status.json",
+      "updated_at": "2026-09-08T00:21:58.657613+00:00",
+      "value": {
+        "system": "LUMEN-OS",
+        "version": "1.5.2",
+        "mode": "L2_PREPARATION_ONLY",
+        "health": "PASS",
+        "current_mission": "M-0003-LUMEN-LIVING-SYSTEM-02",
+        "current_task": "J-007",
+        "next_action": "Run scripts/CERTIFY-LIVING-02.ps1 on Windows for browser E2E and persistence QA.",
+        "last_validation": "2026-09-08T00:09:37.429704+00:00",
+        "last_event_id": 16,
+        "iteration": "LUMEN-LIVING-SYSTEM-02",
+        "protected_reference": "GOLDEN_SANCTUARY_01R2"
+      }
+    }
+  ],
+  "epistemic_rule": [
+    "OBSERVED",
+    "REPORTED",
+    "INFERRED",
+    "UNKNOWN"
+  ],
+  "human_gate_required": false
+}

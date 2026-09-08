@@ -1,0 +1,7 @@
+{
+  "browser": "chromium",
+  "transport": "file://",
+  "url": "file:///mnt/data/LUMEN-OPERATING-SYSTEM-V1.1/projects/golden-sanctuary/index.html",
+  "result": "BLOCKED",
+  "error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/LUMEN-OPERATING-SYSTEM-V1.1/projects/golden-sanctuary/index.html\nCall log:\n  - navigating to \"file:///mnt/data/LUMEN-OPERATING-SYSTEM-V1.1/projects/golden-sanctuary/index.html\", waiting until \"load\"\n"
+}

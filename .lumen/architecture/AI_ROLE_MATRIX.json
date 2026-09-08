@@ -1,0 +1,80 @@
+{
+  "version": "2.0",
+  "date": "2026-09-08",
+  "principle": "best_specialist_with_runtime_verification",
+  "roles": {
+    "governor": {
+      "primary": {
+        "provider": "OpenAI",
+        "model": "gpt-6-astra",
+        "reasoning": "max_or_xhigh",
+        "condition": "runtime_observed_available"
+      },
+      "fallback": {
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "reasoning": "high"
+      },
+      "purpose": "hardest cross-domain planning, synthesis, computer/tool workflows"
+    },
+    "coding_worker": {
+      "provider": "OpenAI",
+      "surface": "Codex",
+      "model": "runtime_best",
+      "rule": "record actual model; do not hard-code stale codex model",
+      "authority": "isolated branch + tests + PR; no merge"
+    },
+    "golden_independent_review": {
+      "provider": "Anthropic",
+      "model": "claude-fable-5-1",
+      "purpose": "high-stakes independent review of code, content and Golden milestones"
+    },
+    "routine_independent_review": {
+      "provider": "Anthropic",
+      "model": "claude-opus-5",
+      "purpose": "daily independent code/architecture review at lower cost than Golden reviewer"
+    },
+    "multimodal_ingest": {
+      "provider": "Google",
+      "model": "gemini-3.8-flash",
+      "purpose": "high-volume long-running multimodal ingestion/analysis and secondary challenge"
+    },
+    "embeddings": {
+      "provider": "OpenAI",
+      "model": "text-embedding-3-large",
+      "purpose": "hybrid semantic retrieval over LUMEN knowledge"
+    },
+    "image_primary_candidate": {
+      "provider": "OpenAI",
+      "model": "gpt-image-2",
+      "purpose": "high-quality image generation/editing candidate"
+    },
+    "video_primary_candidate": {
+      "provider": "Google",
+      "model": "veo-3.1",
+      "purpose": "cinematic generation candidate; always tournament-tested"
+    },
+    "music": {
+      "provider": "Google DeepMind",
+      "model": "lyria-3.5",
+      "purpose": "music and atmospheric score"
+    },
+    "interactive_voice": {
+      "provider": "OpenAI",
+      "model": "gpt-realtime-2.1",
+      "purpose": "live spoken guide and audio interaction"
+    },
+    "video_localization": {
+      "provider": "HeyGen",
+      "surface": "video_translation_precision",
+      "purpose": "voice-cloned/lip-synced multilingual video derivatives"
+    }
+  },
+  "rules": [
+    "Provider/model is never inferred from configuration; runtime must report it.",
+    "Author model cannot be sole Golden reviewer.",
+    "Fallback must preserve output schema and evidence contract.",
+    "Routine work may route to cheaper models; canonical work uses quality-first tier.",
+    "No model may increase its own cost ceiling."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  ".github/workflows/lumen-exact-head.yml": "eb7a0576c2f8463e054f9c4c55973d84f49e19dbf5b3189d8bd0329d573a34b7",
+  ".gitignore.lumen": "67f16447676b53cea7e69e013a70136c4d0eacb1c3b1a43d2a00dccd5027ad76",
+  ".lumen/architecture/00_EXECUTIVE_PLAN.md": "0f74279bfc4a74959e7bd386307bd031f828697ea29f5a47e355f3a803011cd4",
+  ".lumen/architecture/AI_ROLE_MATRIX.json": "aad018721bb3d2dbb7a831ae5f74781d46108d5e9e3d5763315f09f16e4c2fbe",
+  ".lumen/architecture/CONNECTOR_MATRIX.json": "52c263b5d4851cddf156adbbc1796240d9f2ee9f3c6d2fc246ff1e5df7817ba6",
+  ".lumen/architecture/CREATIVE_SUPERSTACK.md": "07a6c7429d494e9f995bc08d6a65b4e76a2911c03511569cb1eb6e795a9be8d6",
+  ".lumen/architecture/KNOWLEDGE_SUPERSTACK.md": "b115c6218592c7a47b3ed948be365d6367c5f63b0cfbbc5f611fb905c9819fce",
+  ".lumen/architecture/PHASE_PLAN.md": "c0470d243f19fd1a2ba52d258dbf0d2389c7c09ced63c79669de1d597663ed9f",
+  ".lumen/architecture/QA_GATES.md": "400af93e9949393a8bbfe4d0e98f606a3a831a63b33c4fa9586b4010b4e9e46b",
+  ".lumen/architecture/ROUTING_POLICY.json": "cee43092338391666037a1460a76a6ed0ede511aa1b085b71de847bab50d80f2",
+  ".lumen/architecture/STACK_VERIFICATION.md": "046e380405f1a9046d472e1a6b51d614fbc9dd6f525035a3d380099ffd6312c3",
+  ".lumen/architecture/SYSTEM_ARCHITECTURE.md": "940d43b83c250c32976d5c14a6962423a29b970f0aabbfa6e99528ae95055680",
+  ".lumen/contracts/task-contract.schema.json": "088db3f3f24bad1c42dc474d1bab6786c0af602d7a550d8a5885c95595785dc8",
+  ".lumen/tasks/LUMEN-ARCH-01-CANONICAL-FACTORY.json": "6b13947ecfa6dfc6c0a6aaf4372a922607ddc6ca49a4bdc6a415866a9c95d617",
+  "AGENTS.md": "0c15bc26fdfb8ad7a5f469338d0a5b7b9c173cf99a7eb0fdcef5d315e89b3eac",
+  "CANONICALIZATION-REPORT.md": "ee1dc3dafe6e7a4744d12ebbecf42312c47fc07430f6f1cb61f59ccac7d2c63f",
+  "evidence/current-source-tests.txt": "def6b85f1d54fd505ec78ae4da150f0ff9cc1c796cb0f6c2fe940f8d544ea412",
+  "scripts/INSTALL-CANONICAL-FACTORY.ps1": "4a4c53af9c9ef83b1947663fdb62e38f90f607512d2afb41c6b7de727f6ecc61",
+  "scripts/VERIFY-CANONICAL-FACTORY.ps1": "333a289253808b2bbde8a6e1e829ad99f627ac69fb321f887548a047aec5d1e0"
+}

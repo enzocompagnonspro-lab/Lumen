@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "route",
+    "status",
+    "next_action"
+  ],
+  "properties": {
+    "route": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "enum": [
+        "ANSWER",
+        "PREPARE",
+        "ITERATE",
+        "HUMAN_GATE",
+        "BLOCKED"
+      ]
+    },
+    "evidence_status": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "OBSERVED",
+          "REPORTED",
+          "INFERRED",
+          "UNKNOWN"
+        ]
+      }
+    },
+    "next_action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "human_gate": {
+      "type": "boolean"
+    }
+  }
+}

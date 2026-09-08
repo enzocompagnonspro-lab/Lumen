@@ -1,0 +1,45 @@
+{
+  "policy_version": 2,
+  "quality_mode": "QUALITY_FIRST",
+  "provider": "OpenAI",
+  "frontier_preferred": {
+    "display_name": null,
+    "model_id": null,
+    "availability": "UNVERIFIED_UNTIL_RUNTIME_OBSERVED",
+    "reason": "LUMEN must not infer a provider capability from a product name or old configuration. Supply a model only after the target surface exposes and verifies it."
+  },
+  "primary_fallback": {
+    "display_name": "GPT-5.6 Sol",
+    "model_id": null,
+    "reasoning_effort": "HIGH",
+    "availability": "KNOWN_TO_CURRENT_LUMEN_BUILD_POLICY_NOT_EXECUTED_BY_REAL01"
+  },
+  "selection_rules": [
+    {
+      "tasks": [
+        "system_architecture",
+        "deep_research",
+        "knowledge_synthesis",
+        "independent_review",
+        "complex_coding",
+        "multimodal_design_review"
+      ],
+      "prefer": "frontier_preferred"
+    },
+    {
+      "tasks": [
+        "routine_routing",
+        "metadata_classification",
+        "state_summary"
+      ],
+      "prefer": "primary_fallback"
+    }
+  ],
+  "hard_rules": [
+    "Never claim a frontier or latest model was used unless runtime evidence identifies it.",
+    "Never invent provider model IDs or availability.",
+    "REAL-01 performs no external model call.",
+    "Keep deterministic content/state tasks in code.",
+    "Independent review and Human Gates remain separate from production."
+  ]
+}

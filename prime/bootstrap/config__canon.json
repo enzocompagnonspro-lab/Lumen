@@ -1,0 +1,57 @@
+{
+  "name": "LUMEN",
+  "version": "1.4",
+  "status": "CANON_LOCKED_T008",
+  "purpose": "Sanctuaire de connaissance et d'élévation par la compréhension et l'action.",
+  "primary_cycle": [
+    "ENTRER",
+    "OBSERVER",
+    "COMPRENDRE",
+    "GRAVER",
+    "AGIR",
+    "TRANSMETTRE"
+  ],
+  "paths": {
+    "VOIR": "Observer le réel",
+    "COMPRENDRE": "Relier les idées",
+    "AGIR": "Façonner demain"
+  },
+  "palette": {
+    "night": "#05070D",
+    "blue_black": "#0B1220",
+    "gold": "#CFAE6A"
+  },
+  "typography": {
+    "titles": "Cinzel",
+    "body": "Cormorant / refined serif-sans pairing"
+  },
+  "navigation": [
+    "ACCUEIL",
+    "JOURNEY",
+    "CONNAISSANCES",
+    "DISCIPLINE",
+    "REGLAGES"
+  ],
+  "community_enabled": false,
+  "visual_rules": [
+    "No silent redesign of a canonical visual",
+    "Canonical assets are immutable references; variants must be explicitly marked PROPOSITION",
+    "Semi-animated premium game-like 2.5D feeling",
+    "Dark blue-black architecture, restrained gold light, cinematic atmosphere",
+    "No generic SaaS dashboard aesthetic",
+    "No community section"
+  ],
+  "epistemic_labels": [
+    "SOURCE",
+    "FAIT",
+    "INTERPRETATION",
+    "SYMBOLE",
+    "PRATIQUE"
+  ],
+  "human_authority": [
+    "public release",
+    "canonical identity change",
+    "unbounded paid compute",
+    "external irreversible action"
+  ]
+}

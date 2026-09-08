@@ -1,0 +1,121 @@
+{
+  "github": {
+    "status": "connected_read; write currently blocked by integration 403",
+    "role": "canonical engineering source of truth",
+    "automatic": [
+      "read",
+      "inspect PR/CI when permissions allow"
+    ],
+    "after_write_fix": [
+      "create task branches",
+      "write contracts",
+      "open PR"
+    ],
+    "human_gate": [
+      "merge main"
+    ]
+  },
+  "codex_bridge": {
+    "status": "built locally",
+    "role": "implementation worker transport",
+    "automatic": [
+      "validate TaskContract",
+      "isolated branch",
+      "run Codex",
+      "collect evidence"
+    ],
+    "human_gate": [
+      "merge",
+      "deploy"
+    ]
+  },
+  "figma": {
+    "status": "connected",
+    "role": "design system and editable scene/UI specification",
+    "automatic": [
+      "read context",
+      "search design system",
+      "write drafts",
+      "motion context",
+      "Code Connect"
+    ],
+    "human_gate": [
+      "promote major visual redesign to canon"
+    ]
+  },
+  "adobe": {
+    "status": "connected",
+    "role": "creative finishing and multi-model media studio",
+    "automatic": [
+      "draft generation/editing",
+      "asset operations"
+    ],
+    "human_gate": [
+      "Golden asset promotion",
+      "unbounded paid generation"
+    ]
+  },
+  "neon": {
+    "status": "connected",
+    "role": "Postgres, branches, Auth, Data API, evidence/state",
+    "automatic": [
+      "DEV/STAGING branch work",
+      "schema inspection",
+      "non-destructive tests"
+    ],
+    "human_gate": [
+      "destructive PROD change"
+    ]
+  },
+  "vercel": {
+    "status": "connected",
+    "role": "preview environments, logs, production hosting",
+    "automatic": [
+      "preview deploy",
+      "preview logs"
+    ],
+    "human_gate": [
+      "production deploy"
+    ]
+  },
+  "google_drive": {
+    "status": "connected",
+    "role": "long-form research/source archive",
+    "automatic": [
+      "source search/read",
+      "controlled ingest"
+    ],
+    "human_gate": [
+      "destructive source changes"
+    ]
+  },
+  "notion": {
+    "status": "connected",
+    "role": "human editorial operations board only",
+    "automatic": [
+      "draft/update editorial workflow when requested"
+    ],
+    "human_gate": []
+  },
+  "heygen": {
+    "status": "connected",
+    "role": "video translation, voice cloning/lip-sync, glossaries",
+    "automatic": [
+      "draft localization jobs within approved budget"
+    ],
+    "human_gate": [
+      "public release",
+      "budget escalation"
+    ]
+  },
+  "stripe": {
+    "status": "connected",
+    "role": "future billing",
+    "automatic": [
+      "sandbox only"
+    ],
+    "human_gate": [
+      "LIVE money action"
+    ]
+  }
+}

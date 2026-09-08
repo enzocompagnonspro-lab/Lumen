@@ -1,0 +1,30 @@
+{
+  "quality_tiers": {
+    "GOLDEN": {
+      "governor": "gpt-6-astra if observed else gpt-5.6-sol/high",
+      "reviewer": "claude-fable-5-1",
+      "media_candidates": 3,
+      "human_gate": true
+    },
+    "PRODUCTION": {
+      "governor": "gpt-5.6-sol/high",
+      "reviewer": "claude-opus-5 when independent review useful",
+      "media_candidates": 1,
+      "human_gate": false
+    },
+    "BULK": {
+      "model": "gemini-3.8-flash or gpt-5.6-luna/terra according to modality",
+      "human_gate": false
+    }
+  },
+  "routing_inputs": [
+    "task_type",
+    "risk",
+    "modality",
+    "context_size",
+    "latency_target",
+    "cost_ceiling",
+    "independence_required",
+    "runtime_availability"
+  ]
+}

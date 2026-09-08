@@ -1,0 +1,107 @@
+{
+  "ts": "2026-09-07T14:00:04.605175+00:00",
+  "iteration": "01R",
+  "ok": true,
+  "checks": [
+    {
+      "name": "index_exists",
+      "ok": true,
+      "detail": "/mnt/data/LUMEN-OPERATING-SYSTEM-V1.2/projects/golden-sanctuary/index.html"
+    },
+    {
+      "name": "layer_exists:00_BASE_PLATE.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layer_exists:01_WORLD_FAR.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layer_exists:02_CLOUDS_MID.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layer_exists:03_ARCHITECTURE_FOREGROUND.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layer_exists:04_TRAVELER.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layer_exists:05_PORTAL_LIGHT.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layer_exists:06_GOLD_FIRE_FX.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layer_exists:07_UI_FOREGROUND.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layer_exists:08_DEPTH_MAP.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "independent_depth_layers",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "traveler_asset",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "portal_asset",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture_asset",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "camera_portal_traversal",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "voir_locked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "agir_locked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no_visible_debug",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no_community",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "traveler_alpha_clean",
+      "ok": true,
+      "detail": "bbox=[753, 363, 890, 522], pixels=13811"
+    }
+  ]
+}

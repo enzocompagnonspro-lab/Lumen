@@ -1,0 +1,51 @@
+{
+  "ts": "2026-09-07T12:54:44.644668+00:00",
+  "ok": true,
+  "checks": [
+    {
+      "name": "index_exists",
+      "ok": true,
+      "detail": "/mnt/data/LUMEN-OPERATING-SYSTEM-V1.1/projects/golden-sanctuary/index.html"
+    },
+    {
+      "name": "sanctuary_asset",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "library_asset",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:id=\"voir\"",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:id=\"comprendre\"",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:id=\"agir\"",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:goLibrary",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:requestAnimationFrame",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no_community",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

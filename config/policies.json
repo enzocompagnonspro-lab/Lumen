@@ -1,0 +1,25 @@
+{
+  "autonomy_level": "L2_PREPARATION_ONLY",
+  "human_gates": {
+    "publish_public": true,
+    "canonical_change": true,
+    "paid_compute_over_session_cap": true,
+    "external_irreversible_action": true
+  },
+  "budget": {
+    "video_compute_session_usd": 2.0,
+    "unbounded_spend_forbidden": true
+  },
+  "qa": {
+    "require_canon_hash_check": true,
+    "require_no_community_check": true,
+    "require_independent_review_before_release": true,
+    "require_visual_qa_before_release": true
+  },
+  "execution": {
+    "safe_local_reads": true,
+    "safe_local_writes_inside_workspace": true,
+    "network_write": false,
+    "public_deploy": false
+  }
+}

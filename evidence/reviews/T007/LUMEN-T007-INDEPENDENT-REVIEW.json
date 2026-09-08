@@ -1,0 +1,71 @@
+{
+  "review_id": "T-007",
+  "mission": "M-0001-GOLDEN-SANCTUARY",
+  "decision": "ITERATE",
+  "review_type": "INDEPENDENT_VISUAL_REVIEW",
+  "observed_evidence": [
+    "browser-canon-home.png",
+    "browser-live-home.png",
+    "browser-live-library.png",
+    "browser-qa-local.json",
+    "golden-sanctuary-technical-qa.json",
+    "golden-sanctuary-visual-qa.json"
+  ],
+  "passes": [
+    "Exact canonical home visual is preserved in QA canon mode.",
+    "Observed Chrome render exists at 1672x941.",
+    "Sanctuary -> Library transition is wired and renders.",
+    "No community route/section detected.",
+    "Visual language, palette and source art remain coherent."
+  ],
+  "blockers": [
+    {
+      "id": "B1",
+      "severity": "BLOCKER",
+      "title": "No true layered 2.5D scene",
+      "detail": "The live scene animates the entire canonical PNG as one plane. Foreground architecture, traveler, citadel, clouds and UI are not independently depth-separated."
+    },
+    {
+      "id": "B2",
+      "severity": "BLOCKER",
+      "title": "VOIR and AGIR are not real destinations",
+      "detail": "Their hotspots trigger only a flash. Only COMPRENDRE changes scene."
+    },
+    {
+      "id": "B3",
+      "severity": "BLOCKER",
+      "title": "Transition is still a flat scene swap",
+      "detail": "Sanctuary -> Library uses flash/crossfade rather than a camera/portal traversal with depth continuity."
+    },
+    {
+      "id": "B4",
+      "severity": "MAJOR",
+      "title": "Debug overlays are visible",
+      "detail": "The 'Golden Sanctuary v1...' hint and 'Retour au Sanctuaire' floating button break the canonical presentation."
+    },
+    {
+      "id": "B5",
+      "severity": "MAJOR",
+      "title": "Atmosphere is generic rather than scene-aware",
+      "detail": "Glow and fog are CSS overlays. Flames, particles, portal, clouds and traveler/cape are not independently animated."
+    },
+    {
+      "id": "B6",
+      "severity": "MAJOR",
+      "title": "Library is not interactive yet",
+      "detail": "The library renders as a flat canonical image; search, content cards and navigation are not functional."
+    }
+  ],
+  "next_iteration_acceptance_criteria": [
+    "At least 5 independent depth layers in the Sanctuary with visibly different parallax.",
+    "Traveler isolated as a distinct layer with clean edges and no revealed holes during motion.",
+    "Portal/light layer independent and animated.",
+    "Foreground architecture separated from distant world.",
+    "No debug overlay in production mode.",
+    "COMPRENDRE transition uses camera push/portal traversal rather than only flash/fade.",
+    "VOIR and AGIR either have real destinations or are explicitly locked/non-interactive.",
+    "Browser evidence captures center/rest and motion states.",
+    "Independent review rerun on observed browser captures before Human Gate."
+  ],
+  "recommended_next_action": "Reopen implementation as LUMEN-SCENE-ENGINE-01R and rebuild the Sanctuary as a true layered 2.5D scene before adding more screens."
+}

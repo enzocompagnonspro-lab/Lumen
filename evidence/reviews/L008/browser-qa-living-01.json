@@ -1,0 +1,27 @@
+﻿{
+    "ts":  "2026-09-07T23:42:41.4525518+00:00",
+    "result":  "PASS",
+    "iteration":  "LUMEN-LIVING-SYSTEM-01",
+    "browser":  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "viewport":  [
+                     1672,
+                     941
+                 ],
+    "golden_rest_mae":  1.8749,
+    "library_idle_mae":  0,
+    "article_idle_mae":  0,
+    "search_state_delta":  2.7721,
+    "checks":  {
+                   "golden_rest_fidelity":  true,
+                   "library_idle_fidelity":  true,
+                   "search_state_rendered":  true,
+                   "article_fidelity":  true
+               },
+    "captures":  [
+                     "evidence/browser-golden-rest-living-01.png",
+                     "evidence/browser-library-idle-living-01.png",
+                     "evidence/browser-library-search-living-01.png",
+                     "evidence/browser-article-living-01.png"
+                 ],
+    "note":  "Observed browser QA for LUMEN-LIVING-SYSTEM-01."
+}

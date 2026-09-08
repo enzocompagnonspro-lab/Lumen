@@ -1,0 +1,300 @@
+{
+  "version": 4,
+  "missions": [
+    {
+      "id": "M-0001-GOLDEN-SANCTUARY",
+      "title": "Golden Sanctuary scene engine",
+      "status": "DONE",
+      "priority": 1,
+      "iteration": "01R2",
+      "objective": "Turn the exact canonical Sanctuary visual into one exceptional living layered 2.5D scene before industrializing the rest of LUMEN.",
+      "tasks": [
+        {
+          "id": "T-001",
+          "title": "Lock canonical assets and hashes",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-002",
+          "title": "Build executable LUMEN control plane",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-003",
+          "title": "Validate current canonical registry",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-004",
+          "title": "Build Golden Sanctuary scene engine v1",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-005",
+          "title": "Run technical QA v1",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-006",
+          "title": "Run observed browser QA v1",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-007",
+          "title": "Independent review v1",
+          "status": "ITERATE",
+          "safe_auto": false
+        },
+        {
+          "id": "T-004R",
+          "title": "Rebuild true layered scene engine 01R",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-005R",
+          "title": "Run technical QA 01R",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-006R",
+          "title": "Run observed browser QA 01R",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-007R",
+          "title": "Independent review 01R",
+          "status": "ITERATE",
+          "safe_auto": false
+        },
+        {
+          "id": "T-004R2",
+          "title": "Fidelity-first layered scene engine 01R2",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-005R2",
+          "title": "Run technical QA 01R2",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-006R2",
+          "title": "Run observed browser QA 01R2",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "T-007R2",
+          "title": "Independent review 01R2",
+          "status": "DONE",
+          "safe_auto": false,
+          "decision": "APPROVED",
+          "evidence": "evidence/reviews/T008/LUMEN-T007R2-INDEPENDENT-REVIEW.json"
+        },
+        {
+          "id": "T-008",
+          "title": "Human validation gate",
+          "status": "DONE",
+          "safe_auto": false,
+          "decision": "APPROVED",
+          "evidence": "evidence/reviews/T008/T008-HUMAN-APPROVAL.json"
+        }
+      ]
+    },
+    {
+      "id": "M-0002-LUMEN-LIVING-SYSTEM-01",
+      "title": "Activate the Sanctuary — COMPRENDRE",
+      "status": "DONE",
+      "priority": 1,
+      "iteration": "LIVING-01",
+      "objective": "Make COMPRENDRE genuinely functional behind the protected canonical interface: searchable Library, active cards, article route, persistent local state and natural return flow.",
+      "success_criteria": [
+        "Golden Sanctuary protected and unchanged at rest",
+        "Library idle view remains canonical",
+        "Library search accepts text and returns registry-backed results",
+        "All six category cards respond",
+        "Featured content cards respond",
+        "Un monde plus lucide opens the canonical article scene",
+        "Article can return to Library",
+        "Local state remembers scene, search and viewed content",
+        "No Community section, no public write and no paid action",
+        "Observed browser QA plus independent review before extending engine to other scenes"
+      ],
+      "tasks": [
+        {
+          "id": "L-001",
+          "title": "Freeze Golden Sanctuary as protected reference",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "L-002",
+          "title": "Build governed Knowledge Registry",
+          "status": "DONE",
+          "blocked_by": [
+            "L-001"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "L-003",
+          "title": "Activate Library interaction layer",
+          "status": "DONE",
+          "blocked_by": [
+            "L-002"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "L-004",
+          "title": "Add persistent local State Engine",
+          "status": "DONE",
+          "blocked_by": [
+            "L-003"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "L-005",
+          "title": "Activate canonical article route and return flow",
+          "status": "DONE",
+          "blocked_by": [
+            "L-003"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "L-006",
+          "title": "Run Living System technical QA",
+          "status": "DONE",
+          "blocked_by": [
+            "L-003",
+            "L-004",
+            "L-005"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "L-007",
+          "title": "Run observed browser QA for Living System",
+          "status": "DONE",
+          "blocked_by": [
+            "L-006"
+          ],
+          "safe_auto": true,
+          "evidence": "evidence/reviews/L008/browser-qa-living-01.json"
+        },
+        {
+          "id": "L-008",
+          "title": "Independent review Living System 01",
+          "status": "DONE",
+          "blocked_by": [
+            "L-007"
+          ],
+          "safe_auto": false,
+          "decision": "APPROVED",
+          "evidence": "evidence/reviews/L008/LUMEN-L008-INDEPENDENT-REVIEW.json"
+        }
+      ]
+    },
+    {
+      "id": "M-0003-LUMEN-LIVING-SYSTEM-02",
+      "title": "Journey Engine — Carte du Voyage",
+      "status": "IN_PROGRESS",
+      "priority": 1,
+      "iteration": "LIVING-02",
+      "objective": "Activate the canonical Carte du Voyage as a persistent seven-chamber state engine connected to real knowledge activity without changing the visual canon.",
+      "success_criteria": [
+        "Golden Sanctuary remains protected",
+        "Journey idle view remains canonical",
+        "Seven chamber hotspots respond",
+        "Vision progress reflects distinct article sections",
+        "Pensée unlocks only after Vision completion",
+        "Journey state survives browser reload",
+        "Knowledge and Journey navigation interoperate",
+        "Observed browser E2E QA plus independent review before expanding to Discipline/AGIR"
+      ],
+      "tasks": [
+        {
+          "id": "J-001",
+          "title": "Freeze Living System 01 approved state",
+          "status": "DONE",
+          "safe_auto": true
+        },
+        {
+          "id": "J-002",
+          "title": "Build governed seven-chamber Journey Registry",
+          "status": "DONE",
+          "blocked_by": [
+            "J-001"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "J-003",
+          "title": "Activate canonical Carte du Voyage interaction layer",
+          "status": "DONE",
+          "blocked_by": [
+            "J-002"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "J-004",
+          "title": "Connect article reading signals to Vision progress",
+          "status": "DONE",
+          "blocked_by": [
+            "J-003"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "J-005",
+          "title": "Add reload-persistence browser E2E harness",
+          "status": "DONE",
+          "blocked_by": [
+            "J-004"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "J-006",
+          "title": "Run Living System 02 technical QA",
+          "status": "DONE",
+          "blocked_by": [
+            "J-005"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "J-007",
+          "title": "Run observed browser QA and persistence E2E",
+          "status": "READY",
+          "blocked_by": [
+            "J-006"
+          ],
+          "safe_auto": true
+        },
+        {
+          "id": "J-008",
+          "title": "Independent review Living System 02",
+          "status": "BLOCKED",
+          "blocked_by": [
+            "J-007"
+          ],
+          "safe_auto": false
+        }
+      ]
+    }
+  ]
+}

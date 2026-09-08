@@ -1,0 +1,58 @@
+{
+  "review_id": "T-007R",
+  "mission": "M-0001-GOLDEN-SANCTUARY",
+  "iteration": "01R",
+  "decision": "ITERATE",
+  "review_type": "INDEPENDENT_VISUAL_REVIEW",
+  "observed_evidence": [
+    "browser-canon-home-01r.png",
+    "browser-live-home-rest-01r.png",
+    "browser-live-home-motion-01r.png",
+    "browser-live-library-01r.png"
+  ],
+  "validated": [
+    "Observed Chrome render at 1672x941",
+    "Canonical render is exact (sampled MAE 0)",
+    "Differential multi-layer motion is observed",
+    "Traveler, portal and foreground architecture exist as independent assets",
+    "VOIR and AGIR are explicitly locked",
+    "COMPRENDRE portal traversal is implemented",
+    "No production debug overlay and no Community section"
+  ],
+  "blockers": [
+    {
+      "id": "B1",
+      "severity": "BLOCKER",
+      "title": "Live render loses too much sharpness",
+      "detail": "Independent review measured full-frame edge-energy collapse: Laplacian variance 2245 canon -> 1012 live rest (~55% loss) -> 605 live motion (~73% loss). The degradation is visible in typography, architecture and cards."
+    },
+    {
+      "id": "B2",
+      "severity": "BLOCKER",
+      "title": "Rest state drifts visibly from canon",
+      "detail": "Full-frame MAE is ~14.42 and SSIM ~0.587. The portal is over-bloomed and multiple scaled/screen-blended copies soften the exact canonical artwork."
+    },
+    {
+      "id": "B3",
+      "severity": "MAJOR",
+      "title": "Parallax is achieved partly by re-rendering/scaling large duplicate planes",
+      "detail": "The whole stage rotation plus per-layer scale causes resampling blur. Screen blend on cloud/portal/gold layers adds luminosity not present in the canon."
+    },
+    {
+      "id": "B4",
+      "severity": "MAJOR",
+      "title": "Library remains a canonical flat scene",
+      "detail": "Acceptable for the current Sanctuary milestone, but it must not be mistaken for a completed interactive Library."
+    }
+  ],
+  "acceptance_criteria_next": [
+    "Rest-state browser render MAE <= 2.5 against canon",
+    "Rest-state sharpness ratio >= 0.90 of canon edge energy",
+    "Differential motion remains observed without whole-stage rotation",
+    "No screen-blend duplication of canonical cloud/portal/gold pixels at rest",
+    "Typography and UI remain visually crisp during ordinary motion",
+    "Portal traversal remains functional",
+    "Rerun observed browser QA and independent review before Human Gate"
+  ],
+  "recommended_next_action": "LUMEN-SCENE-ENGINE-01R2 — fidelity-first parallax: exact-rest composite, no whole-stage tilt, normal compositing at rest, and stricter sharpness QA."
+}

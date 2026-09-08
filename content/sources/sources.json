@@ -1,0 +1,74 @@
+{
+  "version": "REAL-01.1",
+  "retrieved_at": "2026-09-08",
+  "sources": [
+    {
+      "id": "epictetus-enchiridion",
+      "kind": "PHILOSOPHICAL_PRIMARY",
+      "author": "Épictète",
+      "title": "Manuel (Enchiridion), sections 1 et 5",
+      "url": "https://classics.mit.edu/Epictetus/epicench.html",
+      "inspected": "Sections 1 and 5 in the Elizabeth Carter translation hosted by MIT Classics.",
+      "supports": [
+        "Distinguishing one's own actions/judgments from external outcomes.",
+        "Treating judgments about events as distinct from the events themselves."
+      ],
+      "limits": "Ancient Stoic philosophy. It is not experimental psychology and does not establish causal effect sizes for modern behavior change."
+    },
+    {
+      "id": "gollwitzer-1999",
+      "kind": "EMPIRICAL_THEORY_REVIEW",
+      "author": "Peter M. Gollwitzer",
+      "title": "Implementation intentions: Strong effects of simple plans",
+      "venue": "American Psychologist 54(7), 493–503",
+      "doi": "10.1037/0003-066X.54.7.493",
+      "url": "https://doi.org/10.1037/0003-066X.54.7.493",
+      "supports": [
+        "Implementation intentions link a specified situation to a goal-directed response in an if–then plan.",
+        "The research program examines how these plans can facilitate translating intentions into action."
+      ],
+      "limits": "Foundational 1999 article; it should not be treated as the last word on effect size or boundary conditions."
+    },
+    {
+      "id": "gollwitzer-sheeran-2006",
+      "kind": "META_ANALYSIS",
+      "author": "Peter M. Gollwitzer & Paschal Sheeran",
+      "title": "Implementation intentions and goal achievement: A meta-analysis of effects and processes",
+      "venue": "Advances in Experimental Social Psychology 38, 69–119",
+      "doi": "10.1016/S0065-2601(06)38002-1",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1",
+      "supports": [
+        "Across 94 independent tests, the review reported a positive medium-to-large overall effect on goal attainment (d=.65)."
+      ],
+      "limits": "The literature and methods have evolved since 2006; use alongside newer synthesis."
+    },
+    {
+      "id": "sheeran-listrom-gollwitzer-2024",
+      "kind": "META_ANALYSIS",
+      "author": "Paschal Sheeran, Olivia Listrom & Peter M. Gollwitzer",
+      "title": "The when and how of planning: Meta-analysis of the scope and components of implementation intentions in 642 tests",
+      "venue": "European Review of Social Psychology 36(1), 162–194",
+      "doi": "10.1080/10463283.2024.2334563",
+      "url": "https://doi.org/10.1080/10463283.2024.2334563",
+      "supports": [
+        "Across 642 independent tests, reported effects for cognitive, affective and behavioral outcomes ranged from d=.27 to .66.",
+        "Effects were larger when plans used a contingent if–then format, motivation was high, and plans were rehearsed."
+      ],
+      "limits": "Meta-analytic averages vary by outcome, sample and design; they do not guarantee benefit for an individual user or any specific goal."
+    },
+    {
+      "id": "harkin-et-al-2016",
+      "kind": "META_ANALYSIS",
+      "author": "Benjamin Harkin et al.",
+      "title": "Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence",
+      "venue": "Psychological Bulletin 142(2), 198–229",
+      "doi": "10.1037/bul0000025",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26479070/",
+      "supports": [
+        "Across 138 studies (N=19,951), interventions increasing progress monitoring also increased goal attainment on average (d+=.40).",
+        "Effects were larger when outcomes were physically recorded or reported."
+      ],
+      "limits": "Monitoring is a self-regulation technique, not independent verification of a person's action or inner change."
+    }
+  ]
+}

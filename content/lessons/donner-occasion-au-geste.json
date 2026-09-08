@@ -1,0 +1,66 @@
+{
+  "id": "donner-occasion-au-geste",
+  "chamber": "discipline",
+  "title": "Donner une occasion au geste",
+  "question": "À quel signal précis pourrai-je commencer ?",
+  "reading_time": "9–11 min",
+  "sources": [
+    "gollwitzer-1999",
+    "gollwitzer-sheeran-2006",
+    "sheeran-listrom-gollwitzer-2024",
+    "harkin-et-al-2016"
+  ],
+  "sections": [
+    {
+      "kicker": "1 · SITUATION",
+      "title": "L’intention n’est pas encore le départ",
+      "body": [
+        "« Je vais m’y mettre » contient une direction, mais pas nécessairement un moment de départ. Entre le but et le comportement, il reste souvent une décision minuscule à reprendre : quand commencer, dans quel contexte, par quelle première action.",
+        "L’atelier LUMEN ne cherche pas une motivation spectaculaire. Il cherche une occasion reconnaissable."
+      ]
+    },
+    {
+      "kicker": "2 · DISTINCTION",
+      "title": "Du but au plan si–alors",
+      "body": [
+        "Une intention d’implémentation relie un signal à une réponse : « Si/Quand la situation Y se présente, alors je fais X ». Le signal peut être une heure, un lieu, la fin d’une tâche ou un événement repérable.",
+        "Le plan est plus utile lorsqu’il reste concret : un signal identifiable, une réponse réalisable, et un lien assez simple pour être rappelé au moment utile."
+      ]
+    },
+    {
+      "kicker": "3 · PREUVES",
+      "title": "Ce que montrent les synthèses",
+      "body": [
+        "La méta-analyse historique de Gollwitzer et Sheeran (2006) regroupait 94 tests et rapportait un effet global positif sur l’atteinte des buts. Une synthèse plus récente de Sheeran, Listrom et Gollwitzer, publiée en 2024, analyse 642 tests : les effets rapportés varient selon les résultats et les études, et sont plus forts notamment lorsque le plan conserve une forme contingente si–alors, que la motivation du but est élevée et que le plan est répété.",
+        "LUMEN ne transforme pas ces moyennes en promesse individuelle. Elles justifient d’essayer un plan précis, pas de garantir son succès."
+      ]
+    },
+    {
+      "kicker": "4 · EXEMPLE",
+      "title": "Une occasion visible",
+      "body": [
+        "But : « avancer sur mon dossier ». Plan : « Quand je pose ma tasse après le café de 8 h, j’ouvre le dossier et je traite uniquement la première pièce manquante pendant dix minutes ». Trace : « noter la pièce traitée ou l’obstacle rencontré ».",
+        "Le geste peut être modeste. Ce qui compte est que le signal existe dans le monde et que la première action puisse réellement commencer."
+      ]
+    },
+    {
+      "kicker": "5 · RETOUR",
+      "title": "Revenir avec une trace, pas un verdict",
+      "body": [
+        "Une autre méta-analyse, Harkin et collègues (2016), a examiné 138 études sur le suivi de progression et observé en moyenne une amélioration de l’atteinte des buts lorsque le suivi était augmenté. Les effets étaient plus importants lorsque les résultats étaient enregistrés ou rapportés.",
+        "C’est pourquoi LUMEN vous demande une trace au retour. Cette trace reste votre déclaration. Elle aide à apprendre du geste ; elle ne devient pas une preuve indépendante de ce que vous avez accompli."
+      ]
+    },
+    {
+      "kicker": "6 · LIMITE",
+      "title": "Un plan ne supprime pas les obstacles",
+      "body": [
+        "Un signal précis n’ajoute ni temps, ni argent, ni sécurité, ni compétence qui n’existent pas. Si le geste échoue, la bonne question n’est pas « pourquoi suis-je incapable ? », mais « qu’est-ce qui a empêché la réponse au signal ? ».",
+        "Une réalisation partielle ou un non-départ est une donnée pour ajuster le prochain plan, pas une faute à sanctionner."
+      ]
+    }
+  ],
+  "reflection_prompt": "Quel signal réel pouvez-vous reconnaître, quelle action minimale ferez-vous à ce signal, et quelle trace conserverez-vous ?",
+  "transmission_question": "Comment présenteriez-vous le plan si–alors sans promettre qu’il fonctionne pour tout le monde ?",
+  "limit": "Behavior-change evidence is population-level and heterogeneous. No individual outcome is guaranteed."
+}

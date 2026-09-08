@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "name": "manifest_v2",
+      "ok": true
+    },
+    {
+      "name": "model_policy_frontier",
+      "ok": true
+    },
+    {
+      "name": "fallback_sol",
+      "ok": true
+    },
+    {
+      "name": "router_governor",
+      "ok": true
+    },
+    {
+      "name": "human_gate_canon",
+      "ok": true
+    },
+    {
+      "name": "no_invented_model_id",
+      "ok": true
+    }
+  ]
+}

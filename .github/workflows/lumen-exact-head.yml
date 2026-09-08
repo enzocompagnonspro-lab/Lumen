@@ -1,0 +1,45 @@
+name: LUMEN Exact-Head CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Golden Sanctuary hash guard
+        shell: bash
+        run: |
+          expected="e056e7f7ab8b71cd82a05763d8390d61bc5afa50c5c50d1a34b21b90e1a72bb1"
+          actual="$(sha256sum assets/canon/01_SANCTUAIRE.png | awk '{print $1}')"
+          test "$actual" = "$expected"
+          echo "CANON_GUARD_PASS $actual"
+
+  powershell-compat:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Windows validation
+        shell: powershell
+        run: |
+          $expected = "e056e7f7ab8b71cd82a05763d8390d61bc5afa50c5c50d1a34b21b90e1a72bb1"
+          $actual = (Get-FileHash -Algorithm SHA256 ".\assets\canon\01_SANCTUAIRE.png").Hash.ToLowerInvariant()
+          if ($actual -ne $expected) { throw "CANON_GUARD_FAIL" }
+          $p = Start-Process -FilePath "python" `
+            -ArgumentList @("-m","unittest","discover","-s","tests","-v") `
+            -NoNewWindow -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "UNIT_TESTS_FAIL exit=$($p.ExitCode)" }
+          Write-Host "WINDOWS_COMPAT_PASS"

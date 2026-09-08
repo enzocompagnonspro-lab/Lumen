@@ -1,0 +1,14 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#05070D"><title>LUMEN — Du savoir au réel</title><link rel="stylesheet" href="styles.css"></head><body>
+<div id="app" class="app">
+<section class="screen sanctuary active" id="sanctuary" aria-label="Sanctuaire LUMEN">
+  <picture class="canon-picture"><source media="(max-width:700px)" srcset="assets/mobile-home.png"><img src="assets/sanctuaire.png" alt="Sanctuaire LUMEN"></picture>
+  <button class="entry-hotspot" id="enterJourney" aria-label="Commencer le parcours Du savoir au réel"><span>Commencer le parcours</span></button>
+</section>
+<section class="screen experience" id="experience" aria-label="Parcours Du savoir au réel">
+  <div class="world-bg" aria-hidden="true"></div><div class="world-veil" aria-hidden="true"></div>
+  <header class="topbar"><button class="brand" id="homeBtn" aria-label="Retour au Sanctuaire"><b>L</b><span>LUMEN</span></button><div class="pathline"><span>VOIR</span><i></i><span>COMPRENDRE</span><i></i><span>AGIR</span><i></i><span>RETOUR</span><i></i><span>TRANSMETTRE</span></div><button class="resume-pill" id="resetBtn">Recommencer</button></header>
+  <aside class="rail"><div class="rail-title">DU SAVOIR AU RÉEL</div><ol id="progressList"></ol><div class="rail-note">Aucun clic ne vaut compréhension. Une action déclarée reste <strong>SELF_REPORTED</strong>.</div></aside>
+  <main class="content" id="content" tabindex="-1"></main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</section>
+</div><script src="app.js" defer></script></body></html>

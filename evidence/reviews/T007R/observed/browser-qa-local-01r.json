@@ -1,0 +1,25 @@
+﻿{
+    "ts":  "2026-09-07T14:02:26.4401141+00:00",
+    "result":  "PASS",
+    "iteration":  "LUMEN-SCENE-ENGINE-01R",
+    "browser":  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "viewport":  [
+                     1672,
+                     941
+                 ],
+    "canon_sampled_mae":  0,
+    "live_rest_vs_canon_sampled_mae":  13.7906,
+    "live_motion_delta_sampled_mae":  7.3621,
+    "checks":  {
+                   "canon_exact":  true,
+                   "live_remains_close_to_canon":  true,
+                   "differential_motion_observed":  true
+               },
+    "captures":  [
+                     "evidence/browser-canon-home-01r.png",
+                     "evidence/browser-live-home-rest-01r.png",
+                     "evidence/browser-live-home-motion-01r.png",
+                     "evidence/browser-live-library-01r.png"
+                 ],
+    "note":  "Observed Chrome/Edge browser QA. Motion screenshot uses deterministic multi-layer parallax state; particles are disabled in QA modes."
+}

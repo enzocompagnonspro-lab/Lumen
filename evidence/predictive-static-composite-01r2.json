@@ -1,0 +1,10 @@
+{
+  "type": "PREDICTIVE_STATIC_COMPOSITE_NOT_BROWSER_OBSERVED",
+  "iteration": "01R2",
+  "rest_mae_vs_canon": 0.00637,
+  "rest_laplacian_variance": 2243.6167,
+  "canon_laplacian_variance": 2245.1937,
+  "sharpness_ratio": 0.999298,
+  "expected_gate": true,
+  "note": "This validates pixel composition logic only. T-006R2 still requires observed Chrome/Edge evidence."
+}

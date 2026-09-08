@@ -1,0 +1,54 @@
+{
+  "mission": "LUMEN-REAL-01",
+  "title": "Golden Journey — Du savoir au réel",
+  "status": "IN_PROGRESS",
+  "tasks": [
+    {
+      "id": "R-001",
+      "title": "Catalog + sources",
+      "status": "DONE"
+    },
+    {
+      "id": "R-002",
+      "title": "Three semantic lessons",
+      "status": "DONE"
+    },
+    {
+      "id": "R-003",
+      "title": "Workshop + self-reported return",
+      "status": "DONE"
+    },
+    {
+      "id": "R-004",
+      "title": "Transmission trace",
+      "status": "DONE"
+    },
+    {
+      "id": "R-005",
+      "title": "Technical QA",
+      "status": "DONE"
+    },
+    {
+      "id": "R-006",
+      "title": "Desktop browser certification",
+      "status": "READY"
+    },
+    {
+      "id": "R-007",
+      "title": "Mobile browser certification",
+      "status": "READY"
+    },
+    {
+      "id": "R-008",
+      "title": "Independent editorial + artistic review",
+      "status": "BLOCKED_BY_R006_R007"
+    },
+    {
+      "id": "R-009",
+      "title": "Human Gate Golden Journey",
+      "status": "BLOCKED_BY_R008"
+    }
+  ],
+  "note": "Historical Journey J-007 remains untouched; REAL-01 does not retroactively approve it.",
+  "next_action": "Run scripts/CERTIFY-REAL-01.ps1 on Windows Chrome to produce observed desktop/mobile evidence and the review pack."
+}

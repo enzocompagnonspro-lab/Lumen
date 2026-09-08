@@ -1,0 +1,40 @@
+{
+  "review_id": "L-008",
+  "mission": "M-0002-LUMEN-LIVING-SYSTEM-01",
+  "decision": "APPROVED",
+  "scope": "COMPRENDRE / Library living interaction layer",
+  "evidence": {
+    "golden_rest_mae": 1.8749,
+    "library_idle_mae": 0,
+    "article_idle_mae": 0,
+    "search_state_delta": 2.7721,
+    "browser_observed": true,
+    "technical_qa": true
+  },
+  "validated": [
+    "Golden Sanctuary remains protected and visually faithful.",
+    "Library idle view remains exactly canonical.",
+    "Search UI is visibly rendered and integrated into the canonical scene.",
+    "Six category hotspots and seven content hotspots are wired.",
+    "One source-governed content route opens the canonical article scene.",
+    "Article can return to the Library.",
+    "Local state engine stores last scene, search, viewed content and reading sections.",
+    "No Community section, public write or paid action is present."
+  ],
+  "non_blocking_followups": [
+    "Browser evidence proves search rendering and article rendering, but does not yet execute a full click-by-click E2E trace for every category/content hotspot.",
+    "History and Transmission currently have no registered content and therefore return an empty result state.",
+    "The visible 'Lecture suivante' hotspot currently returns to the Library rather than opening a true next reading.",
+    "The canonical article remains image-based; semantic HTML/accessibility/searchable text should be added later without changing the visual canon.",
+    "LocalStorage persistence is implemented but should be explicitly recertified across reload in the next browser QA."
+  ],
+  "next_milestone": "LUMEN-LIVING-SYSTEM-02 — Journey Engine + Carte du Voyage",
+  "next_milestone_requirements": [
+    "Activate the canonical Carte du Voyage without redesign.",
+    "Persist seven chamber states.",
+    "Make progress nodes real and state-driven.",
+    "Connect Library reading/practice events to Journey progress.",
+    "Add E2E browser QA that clicks UI elements and verifies persistence after reload.",
+    "Keep Golden Sanctuary protected."
+  ]
+}

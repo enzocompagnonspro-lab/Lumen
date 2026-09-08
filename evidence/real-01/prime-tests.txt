@@ -1,0 +1,17 @@
+test_gate (test_lumen_prime.T.test_gate) ... ok
+test_no_community (test_lumen_prime.T.test_no_community) ... ok
+test_source (test_lumen_prime.T.test_source) ... ok
+test_validate (test_lumen_prime.T.test_validate) ... ok
+test_visual (test_lumen_prime.T.test_visual) ... ok
+test_context (test_lumen_prime_v2.TestPrimeV2.test_context) ... ok
+test_memory (test_lumen_prime_v2.TestPrimeV2.test_memory) ... ok
+test_model_fallback (test_lumen_prime_v2.TestPrimeV2.test_model_fallback) ... ok
+test_model_frontier_requires_observation (test_lumen_prime_v2.TestPrimeV2.test_model_frontier_requires_observation) ... ok
+test_observed_frontier_can_be_named (test_lumen_prime_v2.TestPrimeV2.test_observed_frontier_can_be_named) ... ok
+test_sync_graph (test_lumen_prime_v2.TestPrimeV2.test_sync_graph) ... ok
+test_validate (test_lumen_prime_v2.TestPrimeV2.test_validate) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 21.008s
+
+OK
