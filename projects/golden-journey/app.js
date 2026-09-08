@@ -11,13 +11,20 @@ function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt
 function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1800)}
 function markQAReady(){
  if(!QA)return;
- requestAnimationFrame(()=>requestAnimationFrame(()=>{
-  const d=document.documentElement;
-  d.dataset.qaReady=QA;
-  d.dataset.qaStage=state.stage;
-  d.dataset.qaInnerWidth=String(window.innerWidth);
-  d.dataset.qaScrollWidth=String(document.documentElement.scrollWidth);
- }))
+ const d=document.documentElement;
+ // Synchronous QA marker: Chrome --dump-dom must see it deterministically.
+ // Reading scrollWidth forces layout after render().
+ const scrollWidth=d.scrollWidth;
+ d.dataset.qaReady=QA;
+ d.dataset.qaStage=state.stage;
+ d.dataset.qaInnerWidth=String(window.innerWidth);
+ d.dataset.qaScrollWidth=String(scrollWidth);
+ if(document.fonts&&document.fonts.ready){
+  document.fonts.ready.then(()=>{
+   d.dataset.qaInnerWidth=String(window.innerWidth);
+   d.dataset.qaScrollWidth=String(d.scrollWidth);
+  }).catch(()=>{});
+ }
 }
 async function boot(){
  if(QA==='e2e-verify'){wire();verifyE2E();return}
