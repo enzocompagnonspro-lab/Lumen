@@ -165,7 +165,42 @@ try {
 
    $domOut = Join-Path $evidence ($Name + ".qa-dom.html")
    $domErr = Join-Path $evidence ($Name + ".qa-dom.stderr.txt")
-   $html = Invoke-LumenChromeDump $Url $domOut $domErr 5000
+   $qaProfile = Join-Path $env:TEMP ("lumen-real01-qa-" + [guid]::NewGuid().ToString("N"))
+   New-Item -ItemType Directory -Force -Path $qaProfile | Out-Null
+   try {
+     $qaArgs = @(
+       "--headless=new",
+       "--disable-gpu",
+       "--no-first-run",
+       "--no-default-browser-check",
+       "--user-data-dir=$qaProfile",
+       "--force-device-scale-factor=1",
+       "--window-size=$Size",
+       "--virtual-time-budget=5000",
+       "--run-all-compositor-stages-before-draw",
+       "--dump-dom",
+       $Url
+     )
+
+     Remove-Item $domOut,$domErr -Force -ErrorAction SilentlyContinue
+     $qaProc = Start-Process -FilePath $chrome `
+       -ArgumentList $qaArgs `
+       -NoNewWindow -Wait -PassThru `
+       -RedirectStandardOutput $domOut `
+       -RedirectStandardError $domErr
+
+     if ($qaProc.ExitCode -ne 0) {
+       throw "REAL01_QA_DOM_CHROME_FAIL: name=$Name exit=$($qaProc.ExitCode)"
+     }
+     if (-not (Test-Path $domOut)) {
+       throw "REAL01_QA_DOM_MISSING: $Name"
+     }
+
+     $html = Get-Content -Raw -Path $domOut
+   }
+   finally {
+     Remove-Item $qaProfile -Recurse -Force -ErrorAction SilentlyContinue
+   }
 
    $readyNeedle = 'data-qa-ready="' + $mode + '"'
    $stageNeedle = 'data-qa-stage="' + $expectedStage + '"'
