@@ -26,3 +26,86 @@
   .panel,.reader,.workshop,.return-card,.transmit-card{padding:22px 20px}
   .badge{max-width:100%;white-space:normal}
 }
+
+
+/* LUMEN_INTERACTION_MAP_01 */
+.sanctuary-map{
+  position:absolute;
+  inset:0;
+  z-index:6;
+  pointer-events:none;
+}
+.sanctuary-hit{
+  position:absolute;
+  display:block;
+  pointer-events:auto;
+  border:0;
+  padding:0;
+  margin:0;
+  background:transparent;
+  color:transparent;
+  cursor:pointer;
+  border-radius:6px;
+  outline:none;
+  transition:background .18s ease,box-shadow .18s ease;
+}
+.sanctuary-hit:hover{
+  background:rgba(207,174,106,.055);
+  box-shadow:inset 0 0 0 1px rgba(246,223,157,.48),0 0 28px rgba(207,174,106,.18);
+}
+.sanctuary-hit:focus-visible{
+  background:rgba(207,174,106,.075);
+  box-shadow:inset 0 0 0 2px rgba(246,223,157,.88),0 0 34px rgba(207,174,106,.28);
+}
+.sanctuary-dialog[hidden]{display:none}
+.sanctuary-dialog{
+  position:fixed;
+  inset:0;
+  z-index:60;
+  display:grid;
+  place-items:center;
+  padding:22px;
+  background:rgba(1,3,7,.74);
+  backdrop-filter:blur(10px);
+}
+.sanctuary-dialog-card{
+  position:relative;
+  width:min(620px,94vw);
+  border:1px solid rgba(207,174,106,.5);
+  background:radial-gradient(circle at 50% 0%,rgba(207,174,106,.08),transparent 42%),rgba(5,7,13,.96);
+  box-shadow:0 36px 100px rgba(0,0,0,.55),0 0 42px rgba(207,174,106,.10);
+  padding:36px;
+}
+.sanctuary-dialog-card h2{
+  margin:0 0 14px;
+  color:#fff4d8;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(30px,4vw,46px);
+  font-weight:400;
+  line-height:1.08;
+}
+.sanctuary-dialog-card p{
+  margin:0;
+  color:#cfc6b5;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
+  line-height:1.65;
+}
+.sanctuary-dialog-close{
+  position:absolute;
+  right:14px;
+  top:12px;
+  width:38px;
+  height:38px;
+  border:1px solid rgba(207,174,106,.28);
+  background:rgba(255,255,255,.025);
+  color:#e8d9b0;
+  cursor:pointer;
+  font-size:25px;
+  line-height:1;
+}
+.sanctuary-dialog-close:focus-visible{outline:2px solid #f6df9d;outline-offset:2px}
+@media(max-width:700px){
+  .sanctuary-dialog-card{padding:30px 24px}
+  .sanctuary-dialog-card p{font-size:16px}
+}

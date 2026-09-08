@@ -3,6 +3,101 @@
 <section class="screen sanctuary active" id="sanctuary" aria-label="Sanctuaire LUMEN">
   <picture class="canon-picture"><source media="(max-width:700px)" srcset="assets/mobile-home.png"><img src="assets/sanctuaire.png" alt="Sanctuaire LUMEN"></picture>
   <button class="entry-hotspot" id="enterJourney" aria-label="Commencer le parcours Du savoir au réel"><span>Commencer le parcours</span></button>
+
+  <!-- LUMEN_INTERACTION_MAP_01 -->
+  <div class="sanctuary-map" id="sanctuaryMap" aria-label="Navigation du Sanctuaire">
+    <button class="sanctuary-hit" id="hitVoir"
+      data-stage="threshold"
+      data-desktop="292,526,335,156" data-mobile="14,449,116,148"
+      aria-label="VOIR — Observer le réel"></button>
+
+    <button class="sanctuary-hit" id="hitComprendre"
+      data-stage="lesson-1"
+      data-desktop="644,526,336,156" data-mobile="137,449,116,148"
+      aria-label="COMPRENDRE — Relier les idées"></button>
+
+    <button class="sanctuary-hit" id="hitAgir"
+      data-stage="workshop"
+      data-desktop="997,526,356,156" data-mobile="260,449,117,148"
+      aria-label="AGIR — Façonner demain"></button>
+
+    <button class="sanctuary-hit" id="hitMission"
+      data-panel="mission"
+      data-desktop="1255,107,353,211" data-mobile="14,608,363,76"
+      aria-label="Mission ou quête du jour"></button>
+
+    <button class="sanctuary-hit" id="hitPhilosophie"
+      data-stage="lesson-1"
+      data-desktop="94,732,347,125"
+      aria-label="Philosophie — ouvrir une lecture disponible"></button>
+
+    <button class="sanctuary-hit" id="hitHistoire"
+      data-panel="history"
+      data-desktop="458,732,356,125"
+      aria-label="Histoire — état du contenu"></button>
+
+    <button class="sanctuary-hit" id="hitPsychologie"
+      data-stage="lesson-3"
+      data-desktop="832,732,357,125"
+      aria-label="Psychologie — ouvrir une lecture disponible"></button>
+
+    <button class="sanctuary-hit" id="hitRecommended"
+      data-stage="threshold"
+      data-desktop="1246,732,323,125"
+      aria-label="Parcours recommandé — Du savoir au réel"></button>
+
+    <button class="sanctuary-hit" id="hitTopKnowledge"
+      data-stage="lesson-1"
+      data-desktop="1158,17,140,48"
+      aria-label="Connaissances"></button>
+
+    <button class="sanctuary-hit" id="hitTopDiscipline"
+      data-stage="lesson-3"
+      data-desktop="1295,17,105,48"
+      aria-label="Discipline"></button>
+
+    <button class="sanctuary-hit" id="hitTopSettings"
+      data-panel="settings"
+      data-desktop="1400,17,110,48"
+      aria-label="Réglages"></button>
+
+    <button class="sanctuary-hit" id="hitBottomStart"
+      data-stage="threshold"
+      data-desktop="1540,858,75,65"
+      aria-label="Tout commence ici"></button>
+
+    <button class="sanctuary-hit" id="hitMobileParcours"
+      data-stage="threshold"
+      data-mobile="78,744,78,62"
+      aria-label="Parcours"></button>
+
+    <button class="sanctuary-hit" id="hitMobileMissions"
+      data-panel="mission"
+      data-mobile="156,744,78,62"
+      aria-label="Missions"></button>
+
+    <button class="sanctuary-hit" id="hitMobileSavoir"
+      data-stage="lesson-1"
+      data-mobile="234,744,78,62"
+      aria-label="Savoir"></button>
+
+    <button class="sanctuary-hit" id="hitMobileSettings"
+      data-panel="settings"
+      data-mobile="312,744,78,62"
+      aria-label="Réglages"></button>
+  </div>
+
+  <div class="sanctuary-dialog" id="sanctuaryDialog" hidden>
+    <div class="sanctuary-dialog-card" role="dialog" aria-modal="true" aria-labelledby="sanctuaryDialogTitle">
+      <button class="sanctuary-dialog-close" id="sanctuaryDialogClose" aria-label="Fermer">×</button>
+      <div class="eyebrow" id="sanctuaryDialogEyebrow">LUMEN</div>
+      <h2 id="sanctuaryDialogTitle"></h2>
+      <p id="sanctuaryDialogBody"></p>
+      <div class="actions">
+        <button class="btn primary" id="sanctuaryDialogCta" hidden></button>
+      </div>
+    </div>
+  </div>
 </section>
 <section class="screen experience" id="experience" aria-label="Parcours Du savoir au réel">
   <div class="world-bg" aria-hidden="true"></div><div class="world-veil" aria-hidden="true"></div>
