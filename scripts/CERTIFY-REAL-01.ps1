@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $evidence = Join-Path $root "evidence\real-01\windows"
 New-Item -ItemType Directory -Force -Path $evidence | Out-Null
@@ -115,6 +115,9 @@ try {
      "--disable-gpu",
      "--no-first-run",
      "--no-default-browser-check",
+     "--force-device-scale-factor=1",
+     "--virtual-time-budget=5000",
+     "--run-all-compositor-stages-before-draw",
      "--window-size=$Size",
      "--screenshot=$Out",
      $Url
@@ -144,7 +147,55 @@ try {
    }
  }
 
+ function Assert-LumenQaDom([string]$Url,[string]$Size,[string]$Name) {
+   if ($Url -notmatch "[?&]qa=([^&]+)") {
+     throw "REAL01_QA_PROBE_NO_MODE: $Url"
+   }
+   $mode = $Matches[1]
+   $stageMap = @{
+     "canon" = "sanctuary"
+     "lesson3" = "lesson-3"
+     "workshop" = "workshop"
+     "transmission" = "transmission"
+   }
+   $expectedStage = $stageMap[$mode]
+   if (-not $expectedStage) {
+     throw "REAL01_QA_PROBE_UNKNOWN_MODE: $mode"
+   }
+
+   $domOut = Join-Path $evidence ($Name + ".qa-dom.html")
+   $domErr = Join-Path $evidence ($Name + ".qa-dom.stderr.txt")
+   $html = Invoke-LumenChromeDump $Url $domOut $domErr 5000
+
+   $readyNeedle = 'data-qa-ready="' + $mode + '"'
+   $stageNeedle = 'data-qa-stage="' + $expectedStage + '"'
+   if ($html -notmatch [regex]::Escape($readyNeedle)) {
+     throw "REAL01_QA_NOT_READY: name=$Name mode=$mode"
+   }
+   if ($html -notmatch [regex]::Escape($stageNeedle)) {
+     throw "REAL01_QA_WRONG_STAGE: name=$Name expected=$expectedStage"
+   }
+
+   if ($Size -like "390,*") {
+     $innerMatch = [regex]::Match($html,'data-qa-inner-width="([0-9]+)"')
+     $scrollMatch = [regex]::Match($html,'data-qa-scroll-width="([0-9]+)"')
+     if (-not $innerMatch.Success -or -not $scrollMatch.Success) {
+       throw "REAL01_MOBILE_VIEWPORT_MARKERS_MISSING: $Name"
+     }
+     $inner = [int]$innerMatch.Groups[1].Value
+     $scroll = [int]$scrollMatch.Groups[1].Value
+     Write-Host "MOBILE_VIEWPORT $Name innerWidth=$inner scrollWidth=$scroll"
+     if ($inner -ne 390) {
+       throw "REAL01_MOBILE_INNER_WIDTH_FAIL: name=$Name expected=390 actual=$inner"
+     }
+     if ($scroll -gt 390) {
+       throw "REAL01_MOBILE_HORIZONTAL_OVERFLOW: name=$Name inner=$inner scroll=$scroll"
+     }
+   }
+ }
+
  foreach ($s in $shots) {
+   Assert-LumenQaDom $s.url $s.size $s.n
    $p = Join-Path $evidence $s.n
    Invoke-LumenChromeScreenshot $s.url $s.size $p $s.n
  }
@@ -159,11 +210,48 @@ try {
    note = "Screenshots prove browser rendering. E2E persistence is verified across a fresh Chrome process using the same profile. User actions and return remain self-reported; no publication is approved."
  }
  $manifest | ConvertTo-Json -Depth 5 | Set-Content -Path (Join-Path $evidence "browser-manifest.json") -Encoding UTF8
+ # Normalize evidence text to UTF-8 for cross-platform review.
+ $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+ foreach ($utfFile in @(
+   (Join-Path $evidence "technical-validation.json"),
+   (Join-Path $evidence "unit-tests.txt")
+ )) {
+   if (Test-Path $utfFile) {
+     $txt = Get-Content -Raw -Path $utfFile
+     [IO.File]::WriteAllText($utfFile,$txt,$utf8NoBom)
+   }
+ }
+
+ $headSha = ((@(& git -C $root rev-parse HEAD 2>$null)) -join "`n").Trim()
+ if (-not $headSha) { $headSha = "UNKNOWN" }
+
+ $reviewState = [ordered]@{
+   mission = "LUMEN-REAL-01"
+   certified_head_sha = $headSha
+   golden_sha256 = $canonHash
+   browser = [ordered]@{
+     desktop = "DONE_OBSERVED"
+     mobile = "DONE_OBSERVED"
+     persistence = "OBSERVED_ACROSS_BROWSER_RESTART"
+   }
+   tasks = [ordered]@{
+     "R-006" = "DONE"
+     "R-007" = "DONE"
+     "R-008" = "READY"
+     "R-009" = "BLOCKED_BY_R008"
+   }
+   independent_review = $false
+   authority = "RUNTIME_EVIDENCE_SUPERSEDES_PRE_CERTIFICATION_STATUS_FIELDS"
+ }
+ $reviewStatePath = Join-Path $evidence "review-state.json"
+ $reviewState | ConvertTo-Json -Depth 6 | Set-Content -Path $reviewStatePath -Encoding UTF8
+
  $pack = Join-Path $root "LUMEN-REVIEW-PACK-REAL-01.zip"
  if (Test-Path $pack) { Remove-Item $pack -Force }
  $packFiles = @(
    (Join-Path $evidence "*.png"),
    (Join-Path $evidence "browser-manifest.json"),
+   (Join-Path $evidence "review-state.json"),
    (Join-Path $evidence "technical-validation.json"),
    (Join-Path $evidence "unit-tests.txt"),
    (Join-Path $evidence "e2e-seed-dom.html"),

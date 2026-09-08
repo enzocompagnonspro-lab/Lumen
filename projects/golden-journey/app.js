@@ -9,10 +9,20 @@ function loadState(){try{return Object.assign({},defaults,JSON.parse(localStorag
 function save(){localStorage.setItem(STATE_KEY,JSON.stringify(state))}
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1800)}
+function markQAReady(){
+ if(!QA)return;
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  const d=document.documentElement;
+  d.dataset.qaReady=QA;
+  d.dataset.qaStage=state.stage;
+  d.dataset.qaInnerWidth=String(window.innerWidth);
+  d.dataset.qaScrollWidth=String(document.documentElement.scrollWidth);
+ }))
+}
 async function boot(){
  if(QA==='e2e-verify'){wire();verifyE2E();return}
  const [c,s,...ls]=await Promise.all([fetch('/api/real/catalog').then(r=>r.json()),fetch('/api/real/sources').then(r=>r.json()),...['choisir-sa-prise','le-fait-et-le-recit','donner-occasion-au-geste'].map(id=>fetch('/api/real/lesson/'+id).then(r=>r.json()))]);
- catalog=c;sources=s;lessons=ls;wire();applyQA();render();
+ catalog=c;sources=s;lessons=ls;wire();applyQA();render();markQAReady();
  if(QA==='e2e-seed')setTimeout(runE2E,80)
 }
 function wire(){$('#enterJourney').addEventListener('click',()=>go('threshold'));$('#homeBtn').addEventListener('click',()=>go('sanctuary'));$('#resetBtn').addEventListener('click',()=>{if(confirm('Effacer le brouillon local de ce parcours ?')){localStorage.removeItem(STATE_KEY);state={...defaults};go('sanctuary')}})}
