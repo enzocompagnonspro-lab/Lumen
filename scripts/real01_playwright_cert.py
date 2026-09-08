@@ -35,7 +35,7 @@ def wait_qa(page, mode: str, expected_stage: str) -> None:
     page.wait_for_selector(f'html[data-qa-ready="{mode}"]', state="attached", timeout=15000)
     page.wait_for_function(
         "stage => document.documentElement.dataset.qaStage === stage",
-        expected_stage,
+        arg=expected_stage,
         timeout=15000,
     )
     page.evaluate("() => document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()")
