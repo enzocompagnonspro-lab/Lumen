@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr" data-scene="entry" data-quality="high">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#05070D">
+  <title>LUMEN — Golden Scene VOIR</title>
+  <link rel="stylesheet" href="cinematic.css">
+</head>
+<body>
+  <canvas id="atmosphere" aria-hidden="true"></canvas>
+
+  <main id="cinematicApp" class="cinematic-app">
+    <section class="entry-scene" id="entryScene" aria-label="Seuil du Sanctuaire">
+      <picture class="entry-canon" aria-hidden="true">
+        <source media="(max-width:700px)" srcset="../assets/mobile-home.png">
+        <img src="../assets/sanctuaire.png" alt="">
+      </picture>
+
+      <div class="entry-depth" aria-hidden="true">
+        <div class="entry-glow"></div>
+        <div class="entry-vignette"></div>
+      </div>
+
+      <button class="portal-entry" id="enterVoir" type="button" aria-label="Entrer dans VOIR">
+        <span class="portal-orbit portal-orbit-a"></span>
+        <span class="portal-orbit portal-orbit-b"></span>
+        <span class="portal-core"></span>
+        <span class="portal-copy">
+          <small>CHAMBRE I</small>
+          <strong>VOIR</strong>
+          <em>Entrer pour voir plus juste</em>
+        </span>
+      </button>
+
+      <div class="entry-caption" aria-hidden="true">
+        <span>LUMEN</span>
+        <i></i>
+        <span>GOLDEN SCENE · CANDIDAT 01</span>
+      </div>
+    </section>
+
+    <section class="voir-scene" id="voirScene" aria-label="Chambre VOIR" hidden>
+      <div class="world" id="world" aria-hidden="true">
+        <div class="depth-plane depth-far"></div>
+        <div class="depth-plane depth-mid"></div>
+        <div class="depth-plane depth-left"></div>
+        <div class="depth-plane depth-right"></div>
+        <div class="depth-plane depth-center"></div>
+        <div class="floor-reflection"></div>
+        <div class="light-volume light-a"></div>
+        <div class="light-volume light-b"></div>
+        <div class="mist mist-a"></div>
+        <div class="mist mist-b"></div>
+        <div class="world-vignette"></div>
+      </div>
+
+      <header class="scene-topbar">
+        <button class="sigil-button" id="backSanctuary" type="button" aria-label="Retour au Sanctuaire">
+          <span>L</span>
+        </button>
+
+        <div class="scene-id">
+          <small>CHAMBRE I</small>
+          <strong>VOIR</strong>
+          <span>Vision · Choisir sa prise</span>
+        </div>
+
+        <button class="sound-button" id="soundToggle" type="button" aria-pressed="false">
+          <span class="sound-dot"></span>
+          <span class="sound-label">SON</span>
+        </button>
+      </header>
+
+      <section class="threshold altar-surface" id="thresholdSurface">
+        <div class="surface-rune" aria-hidden="true">I</div>
+        <div class="surface-eyebrow">LE SEUIL · OBSERVER</div>
+        <h1>Avant l’idée,<br>une situation réelle.</h1>
+        <p class="surface-lead">
+          LUMEN ne commence pas par vous expliquer le monde.
+          Il commence par vous demander où votre regard doit devenir plus juste.
+        </p>
+
+        <label class="situation-prompt" for="situation">
+          Quelle situation mérite aujourd’hui un peu plus de clarté&nbsp;?
+        </label>
+        <textarea id="situation" rows="3"
+          placeholder="Écrivez une situation concrète. Rien n’est envoyé au serveur."></textarea>
+
+        <div class="surface-actions">
+          <button class="ritual-button" id="engraveSituation" type="button">
+            <span>Graver la situation</span>
+            <i aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <p class="truth-note">
+          Brouillon local · aucune compréhension n’est déduite de votre clic.
+        </p>
+      </section>
+
+      <article class="codex-surface" id="codexSurface" hidden>
+        <aside class="codex-spine" aria-hidden="true">
+          <span id="pageRoman">I</span>
+          <i></i>
+          <small>VISION</small>
+        </aside>
+
+        <div class="codex-page">
+          <div class="surface-eyebrow" id="sectionKicker">LECTURE</div>
+          <h2 id="sectionTitle"></h2>
+          <div class="section-body" id="sectionBody"></div>
+
+          <div class="source-whisper" id="sourceWhisper"></div>
+
+          <div class="codex-progress" aria-label="Progression de la lecture">
+            <span id="pageCount">1 / 6</span>
+            <div class="progress-line"><i id="progressFill"></i></div>
+          </div>
+
+          <div class="surface-actions codex-actions">
+            <button class="text-button" id="previousPage" type="button">Précédent</button>
+            <button class="ritual-button" id="nextPage" type="button">
+              <span>Continuer</span>
+              <i aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <section class="reflection-surface altar-surface" id="reflectionSurface" hidden>
+        <div class="surface-rune" aria-hidden="true">∴</div>
+        <div class="surface-eyebrow">REFORMULATION · VOTRE TRACE</div>
+        <h1>Que voyez-vous<br>plus précisément&nbsp;?</h1>
+        <p class="surface-lead" id="reflectionPrompt">
+          Reformulez l’idée avec vos propres mots.
+        </p>
+
+        <textarea id="reflection" rows="4"
+          placeholder="Votre formulation reste locale à ce navigateur."></textarea>
+
+        <div class="surface-actions">
+          <button class="ritual-button" id="sealReflection" type="button">
+            <span>Sceller cette lecture</span>
+            <i aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <p class="truth-note">
+          Statut enregistré : REFORMULATED · pas « compréhension prouvée ».
+        </p>
+      </section>
+
+      <section class="complete-surface" id="completeSurface" hidden>
+        <div class="completion-seal" aria-hidden="true">
+          <span>L</span>
+          <i></i>
+        </div>
+        <div class="surface-eyebrow">VOIR · TRACE CONSERVÉE</div>
+        <h1>Le regard a une prise.</h1>
+        <p>
+          Une situation, une lecture, une reformulation.
+          Rien de plus n’est revendiqué. Rien de moins n’est perdu.
+        </p>
+        <button class="ritual-button" id="returnThreshold" type="button">
+          <span>Revenir au seuil</span>
+          <i aria-hidden="true"></i>
+        </button>
+      </section>
+
+      <div class="scene-status" id="sceneStatus" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="cinematic.js" defer></script>
+</body>
+</html>
