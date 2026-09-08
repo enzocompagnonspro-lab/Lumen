@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "counts": {
+    "CANON": 1,
+    "CATEGORY": 6,
+    "CONTENT": 7,
+    "CHAMBER": 7
+  },
+  "edges": 14,
+  "os_version": "1.5.2",
+  "db": "/mnt/data/LUMEN-OPERATING-SYSTEM-V1.6-PRIME/prime/memory/lumen_prime.db"
+}

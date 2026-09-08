@@ -1,0 +1,136 @@
+{
+  "ts": "2026-09-08T02:33:06.102383+00:00",
+  "ok": true,
+  "checks": [
+    {
+      "name": "canon_name",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "community_disabled",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "gold_color",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "paths",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "asset_exists:SANCTUAIRE",
+      "ok": true,
+      "detail": "C:\\Users\\enzop\\Downloads\\LUMEN-CANONICAL-REPO-20260908-043301\\assets\\canon\\01_SANCTUAIRE.png"
+    },
+    {
+      "name": "asset_hash:SANCTUAIRE",
+      "ok": true,
+      "detail": "e056e7f7ab8b71cd82a05763d8390d61bc5afa50c5c50d1a34b21b90e1a72bb1"
+    },
+    {
+      "name": "asset_exists:CARTE_DU_VOYAGE",
+      "ok": true,
+      "detail": "C:\\Users\\enzop\\Downloads\\LUMEN-CANONICAL-REPO-20260908-043301\\assets\\canon\\02_CARTE_DU_VOYAGE.png"
+    },
+    {
+      "name": "asset_hash:CARTE_DU_VOYAGE",
+      "ok": true,
+      "detail": "e4713c3616a09e4295b35f45ab50f5b93df1999dbaad4ca03905d53636915179"
+    },
+    {
+      "name": "asset_exists:BIBLIOTHEQUE",
+      "ok": true,
+      "detail": "C:\\Users\\enzop\\Downloads\\LUMEN-CANONICAL-REPO-20260908-043301\\assets\\canon\\03_BIBLIOTHEQUE.png"
+    },
+    {
+      "name": "asset_hash:BIBLIOTHEQUE",
+      "ok": true,
+      "detail": "8ffbb5199e3113ec951d2c1ba369af1f631385c2f49bc854794f0382fb1bec74"
+    },
+    {
+      "name": "asset_exists:DISCIPLINE",
+      "ok": true,
+      "detail": "C:\\Users\\enzop\\Downloads\\LUMEN-CANONICAL-REPO-20260908-043301\\assets\\canon\\04_DISCIPLINE_PROGRESSION.png"
+    },
+    {
+      "name": "asset_hash:DISCIPLINE",
+      "ok": true,
+      "detail": "ccdc533c739ba1ab8d577bd9e993f25fc54e8509261021baee8b4e07e65d5922"
+    },
+    {
+      "name": "asset_exists:TROIS_PARCOURS",
+      "ok": true,
+      "detail": "C:\\Users\\enzop\\Downloads\\LUMEN-CANONICAL-REPO-20260908-043301\\assets\\canon\\05_TROIS_PARCOURS.png"
+    },
+    {
+      "name": "asset_hash:TROIS_PARCOURS",
+      "ok": true,
+      "detail": "110b98be54cadfa6f4d5f8d44e801ca0832dd1b236387d8a182d129ac9fae502"
+    },
+    {
+      "name": "asset_exists:MOBILE_HOME",
+      "ok": true,
+      "detail": "C:\\Users\\enzop\\Downloads\\LUMEN-CANONICAL-REPO-20260908-043301\\assets\\canon\\06_MOBILE_HOME.png"
+    },
+    {
+      "name": "asset_hash:MOBILE_HOME",
+      "ok": true,
+      "detail": "879d2036c40f575dbaef6d85314112d3b6957bcbbade03706ad1c18990deaa64"
+    },
+    {
+      "name": "asset_exists:ARTICLE_MONDE_LUCIDE",
+      "ok": true,
+      "detail": "C:\\Users\\enzop\\Downloads\\LUMEN-CANONICAL-REPO-20260908-043301\\assets\\canon\\07_ARTICLE_MONDE_LUCIDE.png"
+    },
+    {
+      "name": "asset_hash:ARTICLE_MONDE_LUCIDE",
+      "ok": true,
+      "detail": "ee746b98dc00ef246e81e6ff712c958c80dc54e2c1cf15415318bcfbb68111d4"
+    },
+    {
+      "name": "asset_exists:RITUEL_MATIN",
+      "ok": true,
+      "detail": "C:\\Users\\enzop\\Downloads\\LUMEN-CANONICAL-REPO-20260908-043301\\assets\\canon\\08_RITUEL_MATIN.png"
+    },
+    {
+      "name": "asset_hash:RITUEL_MATIN",
+      "ok": true,
+      "detail": "242f58e4ab45f1418866474c60633167b71d5c2a031e700779ae44b01da199c7"
+    },
+    {
+      "name": "asset_exists:TRIPTYQUE",
+      "ok": true,
+      "detail": "C:\\Users\\enzop\\Downloads\\LUMEN-CANONICAL-REPO-20260908-043301\\assets\\canon\\09_TRIPTYQUE.png"
+    },
+    {
+      "name": "asset_hash:TRIPTYQUE",
+      "ok": true,
+      "detail": "7fb3391c7d286084ea4563bff918a3863ce5192f0aaa56eac81dd73333065656"
+    },
+    {
+      "name": "asset_exists:POSTER_VERTICAL",
+      "ok": true,
+      "detail": "C:\\Users\\enzop\\Downloads\\LUMEN-CANONICAL-REPO-20260908-043301\\assets\\canon\\10_POSTER_VERTICAL.png"
+    },
+    {
+      "name": "asset_hash:POSTER_VERTICAL",
+      "ok": true,
+      "detail": "ac47b36ffebd90c24bca7613f881ccef28b8e89501cffc00755e474c2d2c611b"
+    },
+    {
+      "name": "no_community_in_scene",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "protected_golden_layers",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

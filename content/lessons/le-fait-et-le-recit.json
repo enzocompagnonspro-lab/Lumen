@@ -1,0 +1,62 @@
+{
+  "id": "le-fait-et-le-recit",
+  "chamber": "pensee",
+  "title": "Le fait et le récit",
+  "question": "Qu’ai-je observé, et qu’ai-je ajouté ?",
+  "reading_time": "8–10 min",
+  "sources": [
+    "epictetus-enchiridion"
+  ],
+  "sections": [
+    {
+      "kicker": "1 · SITUATION",
+      "title": "Une même scène, plusieurs histoires",
+      "body": [
+        "Un message reste sans réponse. Le fait disponible peut être très court : « j’ai envoyé le message à 10 h 12 et je n’ai pas reçu de réponse à 17 h ». Tout le reste — il m’évite, il est débordé, il réfléchit, il a oublié — est une explication possible.",
+        "Notre esprit a besoin de compléter les scènes incomplètes. Le problème n’est pas d’interpréter. Le problème commence quand l’interprétation se déguise en observation."
+      ]
+    },
+    {
+      "kicker": "2 · DISTINCTION",
+      "title": "Observation, interprétation, alternative",
+      "body": [
+        "Une observation décrit ce qui serait, en principe, accessible à plusieurs observateurs ou à une trace : un mot prononcé, un délai, une mesure, un geste. Une interprétation propose ce que cela signifie ou pourquoi cela s’est produit.",
+        "Ajouter au moins une explication alternative n’oblige pas à abandonner votre première hypothèse. Cela suffit souvent à lui rendre son statut : hypothèse, et non verdict."
+      ]
+    },
+    {
+      "kicker": "3 · SOURCE",
+      "title": "Événement et jugement",
+      "body": [
+        "Dans la section 5 du Manuel, Épictète distingue les choses de la manière dont nous les jugeons. LUMEN transforme cette intuition en discipline éditoriale : séparer dans la langue ce qui a été observé de ce qui est inféré.",
+        "Ce passage ancien ne constitue pas une validation scientifique d’une technique cognitive particulière. Il fournit ici un cadre philosophique explicite."
+      ]
+    },
+    {
+      "kicker": "4 · EXEMPLE",
+      "title": "Écrire deux colonnes",
+      "body": [
+        "Fait : « trois rendez-vous ont été annulés cette semaine ». Récit : « personne ne veut travailler avec moi ». Alternative : « le délai, le prix, la saison ou le hasard peuvent expliquer une partie du signal ».",
+        "La différence ne rend pas le problème moins réel. Elle indique simplement quelles informations manquent avant une conclusion plus large."
+      ]
+    },
+    {
+      "kicker": "5 · LIMITE",
+      "title": "Tout n’est pas incertain au même degré",
+      "body": [
+        "Séparer fait et récit ne signifie pas suspendre éternellement son jugement. Certaines preuves sont solides ; certaines explications sont très plausibles. Le but est de proportionner la confiance aux éléments disponibles et de rester capable de réviser.",
+        "LUMEN préfère une conclusion graduée à une certitude performée."
+      ]
+    },
+    {
+      "kicker": "6 · REFORMULATION",
+      "title": "Votre phrase la plus sobre",
+      "body": [
+        "Prenez maintenant une pensée qui vous charge émotionnellement. Écrivez d’abord la scène sans expliquer les intentions des personnes. Puis écrivez l’interprétation que vous lui donnez et une alternative honnête."
+      ]
+    }
+  ],
+  "reflection_prompt": "Quelle phrase décrit uniquement ce que vous avez observé ? Quelle interprétation avez-vous ajoutée ? Quelle autre explication reste possible ?",
+  "transmission_question": "Quel exemple simple utiliseriez-vous pour montrer qu’une interprétation peut être raisonnable sans devenir un fait ?",
+  "limit": "The observation/inference distinction is used as an epistemic practice; this lesson does not diagnose cognitive distortions."
+}

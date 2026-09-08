@@ -1,0 +1,72 @@
+{
+  "ts": "2026-09-08T00:09:35.215420+00:00",
+  "iteration": "LIVING-02",
+  "ok": true,
+  "checks": [
+    {
+      "name": "journey_registry",
+      "ok": true,
+      "detail": "7"
+    },
+    {
+      "name": "journey_asset",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:scene-journey",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:data-chamber",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:syncJourney",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:journey.unlocked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:e2e-persist",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:sessionStorage",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:libraryJourney",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:articleJourney",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seven_chamber_hotspots",
+      "ok": true,
+      "detail": "7"
+    },
+    {
+      "name": "golden_depth_layers_preserved",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "no_community",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

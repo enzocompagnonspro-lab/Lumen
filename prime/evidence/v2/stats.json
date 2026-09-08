@@ -1,0 +1,12 @@
+{
+  "nodes": 21,
+  "edges": 14,
+  "memories": 1,
+  "events": 1,
+  "by_type": {
+    "CANON": 1,
+    "CATEGORY": 6,
+    "CHAMBER": 7,
+    "CONTENT": 7
+  }
+}

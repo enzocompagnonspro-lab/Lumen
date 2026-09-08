@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LUMEN TaskContract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "mission",
+    "objective",
+    "authority",
+    "constraints",
+    "acceptance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "mission": {
+      "type": "string",
+      "minLength": 3
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 10
+    },
+    "base_branch": {
+      "type": "string",
+      "default": "main"
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code_write",
+        "local_tests",
+        "commit",
+        "pull_request",
+        "merge",
+        "deploy",
+        "paid_external_action"
+      ],
+      "properties": {
+        "code_write": {
+          "type": "boolean"
+        },
+        "local_tests": {
+          "type": "boolean"
+        },
+        "browser_qa": {
+          "type": "boolean",
+          "default": false
+        },
+        "commit": {
+          "type": "boolean"
+        },
+        "pull_request": {
+          "type": "boolean"
+        },
+        "merge": {
+          "const": false
+        },
+        "deploy": {
+          "const": false
+        },
+        "paid_external_action": {
+          "const": false
+        }
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "acceptance": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "required_commands": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

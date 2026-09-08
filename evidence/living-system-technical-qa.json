@@ -1,0 +1,92 @@
+{
+  "ts": "2026-09-07T23:40:20.508202+00:00",
+  "iteration": "LIVING-01",
+  "ok": true,
+  "checks": [
+    {
+      "name": "index_exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "knowledge_registry",
+      "ok": true,
+      "detail": "categories=6, contents=7"
+    },
+    {
+      "name": "contains:knowledgeSearch",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:renderResults",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:data-category",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:data-content",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:STATE_KEY",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:localStorage",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:article-monde-lucide.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:articleHome",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contains:portalTraverse",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "six_category_hotspots",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "featured_content_hotspots",
+      "ok": true,
+      "detail": "7"
+    },
+    {
+      "name": "golden_depth_layers_preserved",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "voir_agir_still_governed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no_community",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "article_asset",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+﻿name: LUMEN Exact-Head CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  EXPECTED_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+
+jobs:
+  source-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact head
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ env.EXPECTED_HEAD_SHA }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Assert exact head
+        shell: bash
+        run: |
+          actual="$(git rev-parse HEAD)"
+          echo "EXPECTED_HEAD_SHA=$EXPECTED_HEAD_SHA"
+          echo "ACTUAL_HEAD_SHA=$actual"
+          test "$actual" = "$EXPECTED_HEAD_SHA"
+          echo "EXACT_HEAD_PASS $actual"
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Golden Sanctuary hash guard
+        shell: bash
+        run: |
+          expected="e056e7f7ab8b71cd82a05763d8390d61bc5afa50c5c50d1a34b21b90e1a72bb1"
+          actual="$(sha256sum assets/canon/01_SANCTUAIRE.png | awk '{print $1}')"
+          test "$actual" = "$expected"
+          echo "CANON_GUARD_PASS $actual"
+
+  powershell-compat:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout exact head
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ env.EXPECTED_HEAD_SHA }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Assert exact head
+        shell: powershell
+        run: |
+          $actual = ((git rev-parse HEAD) -join "`n").Trim()
+          Write-Host "EXPECTED_HEAD_SHA=$env:EXPECTED_HEAD_SHA"
+          Write-Host "ACTUAL_HEAD_SHA=$actual"
+          if ($actual -ne $env:EXPECTED_HEAD_SHA) {
+            throw "EXACT_HEAD_FAIL expected=$env:EXPECTED_HEAD_SHA actual=$actual"
+          }
+          Write-Host "EXACT_HEAD_PASS $actual"
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Windows validation
+        shell: powershell
+        run: |
+          $expected = "e056e7f7ab8b71cd82a05763d8390d61bc5afa50c5c50d1a34b21b90e1a72bb1"
+          $actual = (Get-FileHash -Algorithm SHA256 ".\assets\canon\01_SANCTUAIRE.png").Hash.ToLowerInvariant()
+          if ($actual -ne $expected) { throw "CANON_GUARD_FAIL expected=$expected actual=$actual" }
+
+          $stdout = Join-Path $env:RUNNER_TEMP "lumen-tests.stdout.txt"
+          $stderr = Join-Path $env:RUNNER_TEMP "lumen-tests.stderr.txt"
+          $p = Start-Process -FilePath "python" `
+            -ArgumentList @("-m","unittest","discover","-s","tests","-v") `
+            -NoNewWindow -Wait -PassThru `
+            -RedirectStandardOutput $stdout `
+            -RedirectStandardError $stderr
+
+          Get-Content $stdout -ErrorAction SilentlyContinue
+          Get-Content $stderr -ErrorAction SilentlyContinue
+
+          if ($p.ExitCode -ne 0) { throw "UNIT_TESTS_FAIL exit=$($p.ExitCode)" }
+
+          Write-Host "CANON_GUARD_PASS $actual"
+          Write-Host "WINDOWS_COMPAT_PASS"
+

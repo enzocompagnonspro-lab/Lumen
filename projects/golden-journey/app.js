@@ -1,0 +1,187 @@
+const STATE_KEY='lumen.real01.v1';
+const QA=new URLSearchParams(location.search).get('qa');
+const stages=['threshold','lesson-1','lesson-2','lesson-3','workshop','outside','return','transmission','complete'];
+const labels={threshold:'VOIR · Seuil', 'lesson-1':'Vision · Choisir sa prise','lesson-2':'Pensée · Le fait et le récit','lesson-3':'Discipline · Donner une occasion au geste',workshop:'AGIR · Atelier',outside:'Sortie dans le réel',return:'RETOUR · Observer',transmission:'TRANSMETTRE · Laisser une trace',complete:'Parcours fermé'};
+const defaults={version:1,stage:'sanctuary',reflections:{},situation:'',cue:'',action:'',trace:'',departureAt:null,returnStatus:null,returnNote:'',returnAt:null,completed:false};
+let state=loadState(), catalog=null, sources=null, lessons=[];
+const $=s=>document.querySelector(s), content=$('#content'), sanctuary=$('#sanctuary'), experience=$('#experience'), bg=$('.world-bg');
+function loadState(){try{return Object.assign({},defaults,JSON.parse(localStorage.getItem(STATE_KEY)||'{}'))}catch{return {...defaults}}}
+function save(){localStorage.setItem(STATE_KEY,JSON.stringify(state))}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1800)}
+function markQAReady(){
+ if(!QA)return;
+ const d=document.documentElement;
+ // Synchronous QA marker: Chrome --dump-dom must see it deterministically.
+ // Reading scrollWidth forces layout after render().
+ const scrollWidth=d.scrollWidth;
+ d.dataset.qaReady=QA;
+ d.dataset.qaStage=state.stage;
+ d.dataset.qaInnerWidth=String(window.innerWidth);
+ d.dataset.qaScrollWidth=String(scrollWidth);
+ if(document.fonts&&document.fonts.ready){
+  document.fonts.ready.then(()=>{
+   d.dataset.qaInnerWidth=String(window.innerWidth);
+   d.dataset.qaScrollWidth=String(d.scrollWidth);
+  }).catch(()=>{});
+ }
+}
+
+const SANCTUARY_PANEL_COPY={
+ mission:{
+  eyebrow:'MISSION / QUÊTE',
+  title:'Cette carte du canon n’est pas encore une mission publiée.',
+  body:'Le Sanctuaire montre ici une direction éditoriale. Le parcours réel disponible aujourd’hui est « Du savoir au réel ». LUMEN ne remplace pas un contenu manquant par une fausse expérience.',
+  cta:'Ouvrir le parcours réel',
+  stage:'threshold'
+ },
+ history:{
+  eyebrow:'CONNAISSANCE · HISTOIRE',
+  title:'Cette chambre est visible, mais son contenu n’est pas encore produit.',
+  body:'La carte Histoire appartient au canon visuel. Aucun article historique n’est encore certifié dans REAL-01, donc LUMEN vous le dit explicitement au lieu de simuler un contenu.',
+  cta:null,
+  stage:null
+ },
+ settings:{
+  eyebrow:'RÉGLAGES LOCAUX',
+  title:'Le parcours reste sous votre contrôle.',
+  body:'REAL-01 conserve son brouillon dans ce navigateur. Vous pouvez effacer cet état local et recommencer sans écriture serveur.',
+  cta:'Effacer le brouillon local',
+  action:'reset'
+ }
+};
+let sanctuaryDialogAction=null;
+
+function openSanctuaryPanel(kind){
+ const data=SANCTUARY_PANEL_COPY[kind];
+ if(!data)return;
+ const d=$('#sanctuaryDialog');
+ $('#sanctuaryDialogEyebrow').textContent=data.eyebrow;
+ $('#sanctuaryDialogTitle').textContent=data.title;
+ $('#sanctuaryDialogBody').textContent=data.body;
+ const cta=$('#sanctuaryDialogCta');
+ sanctuaryDialogAction=data.action||data.stage||null;
+ if(data.cta){cta.textContent=data.cta;cta.hidden=false}else{cta.hidden=true}
+ d.hidden=false;
+ $('#sanctuaryDialogClose').focus();
+}
+function closeSanctuaryPanel(){
+ const d=$('#sanctuaryDialog');
+ if(d)d.hidden=true;
+ sanctuaryDialogAction=null;
+}
+function fitContainedRect(viewW,viewH,ratio){
+ if(viewW/viewH>ratio){
+  const h=viewH,w=h*ratio;
+  return{x:(viewW-w)/2,y:0,w,h};
+ }
+ const w=viewW,h=w/ratio;
+ return{x:0,y:(viewH-h)/2,w,h};
+}
+function layoutSanctuaryHits(){
+ const img=document.querySelector('.canon-picture img');
+ if(!img||!img.naturalWidth||!img.naturalHeight)return;
+ const mobile=matchMedia('(max-width:700px)').matches;
+ const refW=mobile?390:1672,refH=mobile?844:941;
+ const ratio=img.naturalWidth/img.naturalHeight;
+ const refFit=fitContainedRect(refW,refH,ratio);
+ const liveFit=fitContainedRect(sanctuary.clientWidth,sanctuary.clientHeight,ratio);
+ document.querySelectorAll('.sanctuary-hit').forEach(hit=>{
+  const raw=mobile?hit.dataset.mobile:hit.dataset.desktop;
+  if(!raw){hit.hidden=true;return}
+  const [x,y,w,h]=raw.split(',').map(Number);
+  const nx=(x-refFit.x)/refFit.w,ny=(y-refFit.y)/refFit.h;
+  const nw=w/refFit.w,nh=h/refFit.h;
+  hit.hidden=false;
+  hit.style.left=(liveFit.x+nx*liveFit.w)+'px';
+  hit.style.top=(liveFit.y+ny*liveFit.h)+'px';
+  hit.style.width=(nw*liveFit.w)+'px';
+  hit.style.height=(nh*liveFit.h)+'px';
+ });
+}
+
+async function boot(){
+ if(QA==='e2e-verify'){wire();verifyE2E();return}
+ const [c,s,...ls]=await Promise.all([fetch('/api/real/catalog').then(r=>r.json()),fetch('/api/real/sources').then(r=>r.json()),...['choisir-sa-prise','le-fait-et-le-recit','donner-occasion-au-geste'].map(id=>fetch('/api/real/lesson/'+id).then(r=>r.json()))]);
+ catalog=c;sources=s;lessons=ls;wire();applyQA();render();markQAReady();
+ if(QA==='e2e-seed')setTimeout(runE2E,80)
+}
+function wire(){
+ const enter=$('#enterJourney');
+ if(enter)enter.addEventListener('click',()=>go('threshold'));
+ $('#homeBtn').addEventListener('click',()=>go('sanctuary'));
+ $('#resetBtn').addEventListener('click',()=>{
+  if(confirm('Effacer le brouillon local de ce parcours ?')){
+   localStorage.removeItem(STATE_KEY);state={...defaults};go('sanctuary')
+  }
+ });
+ document.querySelectorAll('.sanctuary-hit[data-stage]').forEach(btn=>{
+  btn.addEventListener('click',()=>go(btn.dataset.stage));
+ });
+ document.querySelectorAll('.sanctuary-hit[data-panel]').forEach(btn=>{
+  btn.addEventListener('click',()=>openSanctuaryPanel(btn.dataset.panel));
+ });
+ const close=$('#sanctuaryDialogClose');
+ if(close)close.addEventListener('click',closeSanctuaryPanel);
+ const dialog=$('#sanctuaryDialog');
+ if(dialog)dialog.addEventListener('click',e=>{if(e.target===dialog)closeSanctuaryPanel()});
+ const cta=$('#sanctuaryDialogCta');
+ if(cta)cta.addEventListener('click',()=>{
+  const action=sanctuaryDialogAction;
+  if(action==='reset'){
+   if(confirm('Effacer le brouillon local REAL-01 ?')){
+    localStorage.removeItem(STATE_KEY);state={...defaults};closeSanctuaryPanel();render()
+   }
+   return;
+  }
+  if(action){closeSanctuaryPanel();go(action)}
+ });
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSanctuaryPanel()});
+ const img=document.querySelector('.canon-picture img');
+ if(img){
+  if(img.complete)requestAnimationFrame(layoutSanctuaryHits);
+  img.addEventListener('load',layoutSanctuaryHits);
+ }
+ window.addEventListener('resize',()=>requestAnimationFrame(layoutSanctuaryHits));
+}
+function go(stage){state.stage=stage;save();render();window.scrollTo({top:0,behavior:'smooth'})}
+function setWorld(stage){let img='assets/bibliotheque.png';if(['workshop','outside','return'].includes(stage))img='assets/rituel.png';if(['transmission','complete'].includes(stage))img='assets/triptyque.png';bg.style.backgroundImage=`url('${img}')`}
+function renderProgress(){const ol=$('#progressList');ol.innerHTML='';const current=stages.indexOf(state.stage);stages.forEach((s,i)=>{const li=document.createElement('li');li.textContent=labels[s];if(i<current)li.className='done';if(i===current)li.className='current';ol.appendChild(li)})}
+function render(){const stage=state.stage;if(stage==='sanctuary'){sanctuary.classList.add('active');experience.classList.remove('active');requestAnimationFrame(layoutSanctuaryHits);return}sanctuary.classList.remove('active');experience.classList.add('active');setWorld(stage);renderProgress();if(stage==='threshold')renderThreshold();else if(stage.startsWith('lesson-'))renderLesson(Number(stage.split('-')[1])-1);else if(stage==='workshop')renderWorkshop();else if(stage==='outside')renderOutside();else if(stage==='return')renderReturn();else if(stage==='transmission')renderTransmission();else renderComplete();content.focus()}
+function renderThreshold(){content.innerHTML=`<div class="hero"><div class="eyebrow">LE SEUIL · VOIR</div><h1>Avant l’idée, une situation réelle.</h1><p class="lead">LUMEN commence par ce qui vous occupe maintenant. Pas pour l’analyser à votre place, mais pour donner au parcours un point d’ancrage.</p></div><section class="panel"><div class="question">Quelle situation mérite aujourd’hui un peu plus de clarté ?</div><label class="field-label" for="situation">Décrivez-la en quelques lignes</label><textarea id="situation" placeholder="Ex. : j’attends une réponse importante et je ne sais pas quoi faire ensuite.">${esc(state.situation)}</textarea><p class="mini-note">Le texte reste dans votre navigateur. Il n’est pas présenté comme une preuve, un diagnostic ou une mesure de compréhension.</p><div class="actions"><button class="btn primary" id="toL1">Entrer dans la première lecture</button></div></section>`;$('#toL1').onclick=()=>{const v=$('#situation').value.trim();if(v.length<8)return toast('Écrivez une situation réelle en quelques mots.');state.situation=v;save();go('lesson-1')}}
+function sourceCards(ids){return ids.map(id=>{const s=sources.sources.find(x=>x.id===id);return `<div class="source-block"><h3>${esc(s.kind)} · ${esc(s.author)}</h3><p><strong>${esc(s.title)}</strong>${s.venue?' · '+esc(s.venue):''}. <a href="${esc(s.url)}" target="_blank" rel="noopener">Source</a></p><p><em>Limite :</em> ${esc(s.limits)}</p></div>`}).join('')}
+function renderLesson(i){const l=lessons[i], key=l.id, saved=state.reflections[key]||'';content.innerHTML=`<article class="reader"><header class="reader-head"><div class="eyebrow">${i===0?'VISION':i===1?'PENSÉE':'DISCIPLINE'} · LECTURE ${i+1}/3</div><h1>${esc(l.title)}</h1><p class="questionline">${esc(l.question)}</p><div class="reading-meta"><span class="badge">${esc(l.reading_time)}</span><span class="badge">Texte sélectionnable</span><span class="badge">Sources & limites visibles</span></div></header>${l.sections.map(s=>`<section class="lesson-section"><div class="section-kicker">${esc(s.kicker)}</div><div><h2>${esc(s.title)}</h2>${s.body.map(p=>`<p>${esc(p)}</p>`).join('')}</div></section>`).join('')}${sourceCards(l.sources)}<div class="limit-block"><h3>Ce que LUMEN ne prétend pas</h3><p>${esc(l.limit)}</p></div><section class="reflection"><div class="eyebrow">REFORMULATION PERSONNELLE</div><h2>${esc(l.reflection_prompt)}</h2><textarea id="reflection" placeholder="Écrivez avec vos propres mots…">${esc(saved)}</textarea><p class="mini-note">Statut enregistré : REFORMULATED. LUMEN ne transforme pas cette réponse en « compréhension prouvée ».</p><div class="actions"><button class="btn ghost" id="back">Retour</button><button class="btn primary" id="next">${i<2?'Continuer':'Passer à l’atelier'}</button></div></section></article>`;$('#back').onclick=()=>go(i===0?'threshold':`lesson-${i}`);$('#next').onclick=()=>{const v=$('#reflection').value.trim();if(v.length<18)return toast('Reformulez l’idée avec un peu plus de précision.');state.reflections[key]=v;save();go(i<2?`lesson-${i+2}`:'workshop')}}
+function renderWorkshop(){content.innerHTML=`<section class="workshop"><div class="eyebrow">L’ATELIER · AGIR</div><h1>Donner une occasion au geste.</h1><p class="question">Construisez un plan assez précis pour reconnaître le moment où il doit commencer.</p><div class="workshop-grid"><div><label class="field-label" for="cue">QUAND / SI — le signal</label><input id="cue" value="${esc(state.cue)}" placeholder="Ex. Quand je pose ma tasse après le café de 8 h"></div><div><label class="field-label" for="action">ALORS — l’action</label><input id="action" value="${esc(state.action)}" placeholder="Ex. j’ouvre le dossier et traite la première pièce manquante"></div></div><label class="field-label" for="trace">LA TRACE — ce que vous pourrez constater</label><input id="trace" value="${esc(state.trace)}" placeholder="Ex. le nom de la pièce traitée ou l’obstacle rencontré"><div class="formula" id="formula">Quand <em>un signal réel</em>, alors <em>une action concrète</em>. Je conserverai <em>une trace</em>.</div><p class="mini-note">Les synthèses de recherche sur les intentions d’implémentation soutiennent l’intérêt des plans contingents si–alors, mais ne garantissent aucun résultat individuel.</p><div class="actions"><button class="btn ghost" id="back">Retour à la lecture</button><button class="btn primary" id="commit">Enregistrer le geste</button></div></section>`;const update=()=>$('#formula').textContent=`Quand ${$('#cue').value||'…'}, alors ${$('#action').value||'…'}. Trace : ${$('#trace').value||'…'}.`;['cue','action','trace'].forEach(id=>$('#'+id).addEventListener('input',update));update();$('#back').onclick=()=>go('lesson-3');$('#commit').onclick=()=>{const cue=$('#cue').value.trim(),action=$('#action').value.trim(),trace=$('#trace').value.trim();if(Math.min(cue.length,action.length,trace.length)<6)return toast('Précisez le signal, l’action et la trace.');Object.assign(state,{cue,action,trace,departureAt:new Date().toISOString(),returnStatus:null,returnNote:'',returnAt:null});save();go('outside')}}
+function renderOutside(){content.innerHTML=`<section class="outside"><div class="seal">L</div><div class="eyebrow">SORTIE DANS LE RÉEL</div><h1>Maintenant, fermez LUMEN.</h1><p>Votre geste est enregistré. Le parcours réussit aussi lorsque vous quittez l’écran. Revenez seulement après avoir rencontré — ou manqué — l’occasion prévue.</p><div class="formula">Quand ${esc(state.cue)}, alors ${esc(state.action)}.<br>Trace attendue : ${esc(state.trace)}.</div><p class="mini-note">Départ enregistré : ${state.departureAt?new Date(state.departureAt).toLocaleString('fr-FR'):'—'}</p><div class="actions" style="justify-content:center"><button class="btn primary" id="returned">Je suis de retour</button><button class="btn ghost" id="copyPlan">Copier mon plan</button></div></section>`;$('#returned').onclick=()=>go('return');$('#copyPlan').onclick=()=>navigator.clipboard?.writeText(`Quand ${state.cue}, alors ${state.action}. Trace : ${state.trace}.`).then(()=>toast('Plan copié.')).catch(()=>toast('Copie non disponible.'))}
+function renderReturn(){content.innerHTML=`<section class="return-card"><div class="eyebrow">RETOUR · SELF_REPORTED</div><h1>Qu’est-ce qui a réellement eu lieu ?</h1><p class="question">Une réalisation partielle, un obstacle ou un non-départ sont des informations. Rien n’est perdu.</p><div class="status-grid">${[['DONE','Réalisé'],['PARTIAL','Partiellement'],['NOT_DONE','Non réalisé']].map(([v,l])=>`<button class="status-btn ${state.returnStatus===v?'selected':''}" data-status="${v}">${l}</button>`).join('')}</div><label class="field-label" for="returnNote">Votre observation au retour</label><textarea id="returnNote" placeholder="Qu’avez-vous constaté ? Qu’est-ce qui a aidé ou empêché le geste ?">${esc(state.returnNote)}</textarea><p class="mini-note">Cette déclaration sera exportée avec <strong>independentlyVerified: false</strong>.</p><div class="actions"><button class="btn ghost" id="back">Retour au plan</button><button class="btn primary" id="toTransmit">Continuer vers la transmission</button></div></section>`;document.querySelectorAll('.status-btn').forEach(b=>b.onclick=()=>{state.returnStatus=b.dataset.status;save();renderReturn()});$('#back').onclick=()=>go('outside');$('#toTransmit').onclick=()=>{const n=$('#returnNote').value.trim();if(!state.returnStatus)return toast('Choisissez un statut de retour.');if(n.length<10)return toast('Décrivez brièvement ce qui s’est passé.');state.returnNote=n;state.returnAt=new Date().toISOString();save();go('transmission')}}
+function transmissionText(){const l1=state.reflections['choisir-sa-prise']||'',l2=state.reflections['le-fait-et-le-recit']||'',l3=state.reflections['donner-occasion-au-geste']||'';return `LUMEN — TRACE À TRANSMETTRE\n\n1. Une prise : ${l1}\n\n2. Fait / récit : ${l2}\n\n3. Donner une occasion au geste : ${l3}\n\nMon plan : Quand ${state.cue}, alors ${state.action}.\nTrace prévue : ${state.trace}.\nRetour (${state.returnStatus}) : ${state.returnNote}\n\nSources de travail : Épictète, Manuel §§1 et 5 ; Gollwitzer (1999) ; Sheeran, Listrom & Gollwitzer (2024) ; Harkin et al. (2016).\n\nLimite : cette trace raconte un essai personnel. Elle ne constitue pas une preuve indépendante.`}
+function renderTransmission(){const txt=transmissionText();content.innerHTML=`<section class="transmit-card"><div class="eyebrow">TRANSMISSION · LAISSER UNE TRACE UTILE</div><h1>Transmettre sans transformer l’essai en vérité.</h1><p class="question">Voici une trace que vous pouvez garder ou partager. Elle contient l’idée, votre geste, votre retour et la limite de ce que cela prouve.</p><div class="trace" id="traceText"></div><div class="actions"><button class="btn primary" id="copyTrace">Copier la trace</button><button class="btn ghost" id="exportJson">Exporter JSON</button><button class="btn ghost" id="finish">Fermer le parcours</button></div></section>`;$('#traceText').textContent=txt;$('#copyTrace').onclick=()=>navigator.clipboard?.writeText(txt).then(()=>toast('Trace copiée.')).catch(()=>toast('Copie non disponible.'));$('#exportJson').onclick=()=>{const payload={mission:'LUMEN-REAL-01',journey:'du-savoir-au-reel',status:'SELF_REPORTED',independentlyVerified:false,exportedAt:new Date().toISOString(),state};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='lumen-trace-du-savoir-au-reel.json';a.click();URL.revokeObjectURL(a.href)};$('#finish').onclick=()=>{state.completed=true;save();go('complete')}}
+function renderComplete(){content.innerHTML=`<section class="outside"><div class="seal">L</div><div class="eyebrow">PARCOURS FERMÉ · CANDIDAT REAL-01</div><h1>Vous êtes revenu avec une trace.</h1><p>Le système n’affirme ni maîtrise, ni transformation intérieure, ni preuve indépendante. Il sait seulement qu’un parcours a été consulté, reformulé, préparé et déclaré au retour.</p><div class="actions" style="justify-content:center"><button class="btn primary" id="home">Retour au Sanctuaire</button><button class="btn ghost" id="traceAgain">Revoir la transmission</button></div></section>`;$('#home').onclick=()=>go('sanctuary');$('#traceAgain').onclick=()=>go('transmission')}
+function applyQA(){const q=QA;if(!q)return;if(q==='e2e-seed'){localStorage.removeItem(STATE_KEY);state={...defaults};return}if(q==='e2e-verify'){return}if(q==='canon'){state={...defaults,stage:'sanctuary'};const style=document.createElement('style');style.textContent='.entry-hotspot,.sanctuary-map{display:none!important}';document.head.appendChild(style);return}const map={threshold:'threshold',lesson1:'lesson-1',lesson2:'lesson-2',lesson3:'lesson-3',workshop:'workshop',outside:'outside',return:'return',transmission:'transmission',complete:'complete'};if(map[q]){state={...defaults,stage:map[q],situation:'Une décision réelle à clarifier.',reflections:{'choisir-sa-prise':'Je distingue le résultat que je souhaite de l’action dont je suis réellement l’auteur.','le-fait-et-le-recit':'Je peux décrire la scène avant d’en faire une explication, puis garder une alternative ouverte.','donner-occasion-au-geste':'Je transforme mon intention en un signal reconnaissable et une première action concrète.'},cue:'je termine mon café de 8 h',action:'j’ouvre le dossier et traite la première pièce manquante pendant dix minutes',trace:'le nom de la pièce traitée ou l’obstacle rencontré',departureAt:'2026-09-08T08:00:00Z',returnStatus:'PARTIAL',returnNote:'J’ai commencé au signal prévu, puis un appel a interrompu le geste. La première pièce a toutefois été identifiée.',returnAt:'2026-09-08T10:00:00Z'};const b=document.createElement('div');b.className='qa-badge';b.textContent='QA '+q;document.body.appendChild(b)}}
+
+async function runE2E(){
+ try{
+  $('#enterJourney').click();
+  $('#situation').value='Une situation reelle a clarifier'; $('#toL1').click();
+  $('#reflection').value='Je distingue le resultat souhaite de la prochaine action qui depend reellement de moi.'; $('#next').click();
+  $('#reflection').value='Je decris le fait observable avant mon interpretation et je garde une alternative possible.'; $('#next').click();
+  $('#reflection').value='Je relie un signal concret a une premiere action simple sans prendre le plan pour une garantie.'; $('#next').click();
+  $('#cue').value='je termine mon cafe de 8 h'; $('#action').value='j ouvre le dossier et traite la premiere piece manquante'; $('#trace').value='le nom de la piece ou l obstacle rencontre'; $('#commit').click();
+  $('#returned').click();
+  document.querySelector('[data-status="PARTIAL"]').click();
+  $('#returnNote').value='Le geste a commence au signal prevu puis une interruption a limite son execution.'; $('#toTransmit').click();
+  $('#finish').click();
+  const s=JSON.parse(localStorage.getItem(STATE_KEY)||'{}');
+  if(!s.completed||!s.departureAt||s.returnStatus!=='PARTIAL'||!s.returnAt)throw new Error('state incomplete before reload');
+  const d=document.createElement('div');d.id='qaResult';d.setAttribute('data-qa','seed-ok');d.textContent='REAL01_E2E_SEED_OK';document.body.appendChild(d);
+ }catch(e){const d=document.createElement('div');d.id='qaResult';d.textContent='REAL01_E2E_FAIL '+e.message;document.body.appendChild(d)}
+}
+function verifyE2E(){
+ try{
+  const s=JSON.parse(localStorage.getItem(STATE_KEY)||'{}');
+  const ok=s.completed===true&&s.returnStatus==='PARTIAL'&&!!s.departureAt&&!!s.returnAt&&Object.keys(s.reflections||{}).length===3&&!!s.cue&&!!s.action&&!!s.trace;
+  const d=document.createElement('div');d.id='qaResult';d.setAttribute('data-qa',ok?'pass':'fail');d.textContent=ok?'REAL01_E2E_PASS':'REAL01_E2E_FAIL persisted state incomplete';document.body.appendChild(d);
+ }catch(e){const d=document.createElement('div');d.id='qaResult';d.setAttribute('data-qa','fail');d.textContent='REAL01_E2E_FAIL '+e.message;document.body.appendChild(d)}
+}
+
+boot().catch(e=>{console.error(e);content.textContent='LUMEN ne peut pas charger ce parcours.'});

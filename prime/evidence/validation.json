@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "name": "manifest_name",
+      "ok": true
+    },
+    {
+      "name": "community_forbidden",
+      "ok": true
+    },
+    {
+      "name": "human_gate_canon",
+      "ok": true
+    },
+    {
+      "name": "review_gate",
+      "ok": true
+    },
+    {
+      "name": "router_governor",
+      "ok": true
+    }
+  ]
+}

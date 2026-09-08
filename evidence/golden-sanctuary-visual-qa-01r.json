@@ -1,0 +1,30 @@
+{
+  "ts": "2026-09-07T13:56:40.499032+00:00",
+  "iteration": "01R",
+  "result": "PENDING_BROWSER_OBSERVATION",
+  "ok": false,
+  "checks": [
+    {
+      "name": "technical_qa_01r",
+      "ok": true
+    },
+    {
+      "name": "browser_render_observed",
+      "ok": false,
+      "detail": "NOT_OBSERVED"
+    },
+    {
+      "name": "canon_exact_browser",
+      "ok": false
+    },
+    {
+      "name": "live_close_to_canon",
+      "ok": false
+    },
+    {
+      "name": "differential_motion_observed",
+      "ok": false
+    }
+  ],
+  "browser_report": {}
+}

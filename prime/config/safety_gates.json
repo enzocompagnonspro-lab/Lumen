@@ -1,0 +1,20 @@
+{
+  "human_gate_required_for": [
+    "canonical_change",
+    "public_release",
+    "irreversible_external_action",
+    "paid_compute_over_session_cap"
+  ],
+  "independent_review_required_for": [
+    "golden_visual_approval",
+    "release_candidate",
+    "knowledge_module_marked_canonical",
+    "video_master"
+  ],
+  "evidence_rules": {
+    "OBSERVED": "Directly measured or seen in tool/browser/file evidence.",
+    "REPORTED": "Stated by user or external actor but not independently measured.",
+    "INFERRED": "Reasoned conclusion; never present as direct observation.",
+    "UNKNOWN": "Insufficient evidence."
+  }
+}

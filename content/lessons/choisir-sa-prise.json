@@ -1,0 +1,62 @@
+{
+  "id": "choisir-sa-prise",
+  "chamber": "vision",
+  "title": "Choisir sa prise",
+  "question": "Sur quoi puis-je agir sans prétendre tout maîtriser ?",
+  "reading_time": "8–10 min",
+  "sources": [
+    "epictetus-enchiridion"
+  ],
+  "sections": [
+    {
+      "kicker": "1 · SITUATION",
+      "title": "Le piège du résultat",
+      "body": [
+        "Nous formulons souvent nos problèmes sous la forme d’un résultat à obtenir : être respecté, réussir un projet, convaincre quelqu’un, ne plus ressentir d’inquiétude. Ces résultats comptent, mais ils dépendent rarement de nous seuls.",
+        "La première opération de LUMEN n’est donc pas de réduire l’ambition. Elle consiste à déplacer la question : quelle partie de ce résultat peut devenir une action dont vous êtes réellement l’auteur aujourd’hui ?"
+      ]
+    },
+    {
+      "kicker": "2 · DISTINCTION",
+      "title": "Prise directe, influence, extérieur",
+      "body": [
+        "Une prise directe est une action que vous pouvez exécuter : écrire, appeler, préparer, refuser, demander, marcher, vérifier. Une influence est ce que votre action peut favoriser sans le garantir. Un extérieur est ce qui reste soumis aux décisions d’autrui, au hasard ou à des conditions que vous ne contrôlez pas.",
+        "Cette carte évite deux erreurs opposées : croire que tout dépend de soi, ou conclure que rien ne vaut la peine d’être tenté."
+      ]
+    },
+    {
+      "kicker": "3 · SOURCE",
+      "title": "La proposition stoïcienne",
+      "body": [
+        "Le Manuel d’Épictète ouvre sur une distinction entre ce qui relève de nos propres actions et jugements et ce qui n’en relève pas. La section 5 ajoute une seconde distinction : l’événement et le jugement porté sur l’événement ne sont pas la même chose.",
+        "LUMEN utilise ici cette philosophie comme instrument de clarification, pas comme preuve expérimentale qu’une telle distinction améliore automatiquement la vie de chacun."
+      ]
+    },
+    {
+      "kicker": "4 · EXEMPLE",
+      "title": "Transformer une attente en prise",
+      "body": [
+        "« Je veux que mon client accepte » n’est pas une action. « Je vérifie les deux points qui peuvent encore bloquer sa décision et je lui envoie une réponse claire avant 16 h » en est une.",
+        "L’issue reste incertaine. Mais l’incertitude n’empêche plus de savoir ce qui doit être fait ensuite."
+      ]
+    },
+    {
+      "kicker": "5 · LIMITE",
+      "title": "Ne pas culpabiliser l’individu",
+      "body": [
+        "Certaines contraintes sont matérielles, sociales ou institutionnelles. Les nommer comme extérieures ne les rend ni justes ni insignifiantes. Une situation peut exiger de l’aide, une négociation, une stratégie collective ou simplement de reconnaître qu’aucune action immédiate ne suffit.",
+        "La prise sert à retrouver un point d’action ; elle ne sert jamais à nier les contraintes réelles."
+      ]
+    },
+    {
+      "kicker": "6 · REFORMULATION",
+      "title": "La phrase à emporter",
+      "body": [
+        "Avant de poursuivre, écrivez votre distinction avec vos propres mots. LUMEN enregistre une reformulation ; il ne prétend pas en déduire que vous avez « maîtrisé » la chambre Vision."
+      ]
+    }
+  ],
+  "reflection_prompt": "Dans une situation réelle qui vous occupe, quel résultat souhaitez-vous — et quelle action précise dépend effectivement de vous ?",
+  "transmission_question": "Comment expliqueriez-vous à quelqu’un la différence entre agir sur une prise et exiger un résultat ?",
+  "limit": "Philosophical framing, not clinical advice or experimental proof."
+}

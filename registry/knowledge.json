@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "principle": "Metadata follows the canonical Library visual. Substantive content remains source-governed and is not silently invented.",
+  "categories": [
+    {
+      "id": "philosophie",
+      "label": "Philosophie",
+      "tagline": "Penser mieux",
+      "icon": "temple"
+    },
+    {
+      "id": "histoire",
+      "label": "Histoire",
+      "tagline": "Tirer les leçons",
+      "icon": "book"
+    },
+    {
+      "id": "psychologie",
+      "label": "Psychologie",
+      "tagline": "Se comprendre",
+      "icon": "mind"
+    },
+    {
+      "id": "discipline",
+      "label": "Discipline",
+      "tagline": "Bâtir le réel",
+      "icon": "temple"
+    },
+    {
+      "id": "strategie",
+      "label": "Stratégie",
+      "tagline": "Voir plus loin",
+      "icon": "mountain"
+    },
+    {
+      "id": "transmission",
+      "label": "Transmission",
+      "tagline": "Laisser une empreinte",
+      "icon": "circle"
+    }
+  ],
+  "contents": [
+    {
+      "id": "sens-monde-incertain",
+      "title": "Le sens dans un monde incertain",
+      "subtitle": "Une boussole pour notre époque",
+      "category": "philosophie",
+      "type": "IDEE_FONDAMENTALE",
+      "scene": "ARTICLE_MONDE_LUCIDE",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "marc-aurele-maitrise",
+      "title": "Marc Aurèle",
+      "subtitle": "La maîtrise intérieure",
+      "category": "philosophie",
+      "type": "GRANDS_PENSEURS",
+      "status": "ACTIVE_METADATA"
+    },
+    {
+      "id": "routines-exception",
+      "title": "Routines d’exception",
+      "subtitle": "De l’intention à l’action",
+      "category": "discipline",
+      "type": "PRATIQUE",
+      "status": "ACTIVE_METADATA"
+    },
+    {
+      "id": "reconstruire-attention",
+      "title": "Reconstruire son attention",
+      "subtitle": "Un art de vivre",
+      "category": "psychologie",
+      "type": "PERSPECTIVE",
+      "status": "ACTIVE_METADATA"
+    },
+    {
+      "id": "fondations-vie-lucide",
+      "title": "Les fondations d’une vie lucide",
+      "subtitle": "6 chapitres · 2h30",
+      "category": "philosophie",
+      "type": "PARCOURS",
+      "status": "ACTIVE_METADATA"
+    },
+    {
+      "id": "connaissance-action",
+      "title": "De la connaissance à l’action",
+      "subtitle": "8 chapitres · 3h45",
+      "category": "discipline",
+      "type": "PARCOURS",
+      "status": "ACTIVE_METADATA"
+    },
+    {
+      "id": "penser-batisseur",
+      "title": "Penser comme un bâtisseur",
+      "subtitle": "7 chapitres · 3h10",
+      "category": "strategie",
+      "type": "PARCOURS",
+      "status": "ACTIVE_METADATA"
+    }
+  ]
+}

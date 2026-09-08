@@ -1,0 +1,11 @@
+
+test_canon_locked (test_prime_integration.TestPrimeIntegration.test_canon_locked) ... ok
+test_main_status_not_auto_advanced (test_prime_integration.TestPrimeIntegration.test_main_status_not_auto_advanced) ... ok
+test_prime_exists (test_prime_integration.TestPrimeIntegration.test_prime_exists) ... ok
+test_server_prime_routes (test_prime_integration.TestPrimeIntegration.test_server_prime_routes) ... ok
+test_sync_current_os (test_prime_integration.TestPrimeIntegration.test_sync_current_os) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.032s
+
+OK

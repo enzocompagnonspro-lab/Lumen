@@ -1,0 +1,121 @@
+{
+  "mission": "LUMEN-REAL-01",
+  "ok": true,
+  "checks": [
+    {
+      "name": "28_topics",
+      "ok": true,
+      "detail": "28"
+    },
+    {
+      "name": "3_real_lessons",
+      "ok": true,
+      "detail": "3"
+    },
+    {
+      "name": "choisir-sa-prise:six_sections",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "choisir-sa-prise:source_refs",
+      "ok": true,
+      "detail": "['epictetus-enchiridion']"
+    },
+    {
+      "name": "choisir-sa-prise:reflection",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "choisir-sa-prise:transmission",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "donner-occasion-au-geste:six_sections",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "donner-occasion-au-geste:source_refs",
+      "ok": true,
+      "detail": "['gollwitzer-1999', 'gollwitzer-sheeran-2006', 'sheeran-listrom-gollwitzer-2024', 'harkin-et-al-2016']"
+    },
+    {
+      "name": "donner-occasion-au-geste:reflection",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "donner-occasion-au-geste:transmission",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "le-fait-et-le-recit:six_sections",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "le-fait-et-le-recit:source_refs",
+      "ok": true,
+      "detail": "['epictetus-enchiridion']"
+    },
+    {
+      "name": "le-fait-et-le-recit:reflection",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "le-fait-et-le-recit:transmission",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no_community",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "semantic_text",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "reduced_motion",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "self_reported",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "independent_false",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "browser_e2e_harness",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no_user_innerhtml",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "canonical_home_asset",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile_asset",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

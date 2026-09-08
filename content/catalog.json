@@ -1,0 +1,233 @@
+{
+  "version": "1.7-real-01",
+  "authority": "New editorial availability is declared here, not by legacy UI metadata.",
+  "journey": {
+    "id": "du-savoir-au-reel",
+    "title": "Du savoir au réel",
+    "status": "CANDIDATE_REVIEW",
+    "lessons": [
+      "choisir-sa-prise",
+      "le-fait-et-le-recit",
+      "donner-occasion-au-geste"
+    ]
+  },
+  "chambers": [
+    {
+      "id": "vision",
+      "label": "Vision",
+      "purpose": "Rendre une direction présente sans la confondre avec un accomplissement.",
+      "topics": [
+        {
+          "id": "choisir-sa-prise",
+          "title": "Choisir sa prise",
+          "question": "Sur quoi puis-je agir sans prétendre tout maîtriser ?",
+          "status": "DRAFT_REVIEWABLE"
+        },
+        {
+          "id": "attention",
+          "title": "Ce qui mérite votre attention",
+          "question": "À quoi voulez-vous réellement consacrer votre regard ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "desir",
+          "title": "Un désir qui vous appartient",
+          "question": "Pourquoi ce but compte-t-il pour vous ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "horizon",
+          "title": "Dessiner un horizon praticable",
+          "question": "À quoi ressemblerait une amélioration reconnaissable ?",
+          "status": "TO_PRODUCE"
+        }
+      ]
+    },
+    {
+      "id": "pensee",
+      "label": "Pensée",
+      "purpose": "Former un jugement clair et révisable.",
+      "topics": [
+        {
+          "id": "le-fait-et-le-recit",
+          "title": "Le fait et le récit",
+          "question": "Qu’ai-je observé, et qu’ai-je ajouté ?",
+          "status": "DRAFT_REVIEWABLE"
+        },
+        {
+          "id": "mots",
+          "title": "Les mots qui orientent",
+          "question": "Quel mot rend mon problème confus ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "cause",
+          "title": "Une cause ou une coïncidence",
+          "question": "Qu’est-ce qui autorise mon explication ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "changer-avis",
+          "title": "Changer d’avis avec raison",
+          "question": "Quelle information pourrait modifier mon jugement ?",
+          "status": "TO_PRODUCE"
+        }
+      ]
+    },
+    {
+      "id": "obstacle",
+      "label": "Obstacle",
+      "purpose": "Regarder les résistances et les contraintes sans réduire la personne à celles-ci.",
+      "topics": [
+        {
+          "id": "commencer",
+          "title": "Ce qui empêche de commencer",
+          "question": "Quel obstacle se présente juste avant le premier geste ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "apprehension",
+          "title": "Avancer avec une appréhension",
+          "question": "Quelle petite décision reste possible malgré l’incertitude ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "engagements",
+          "title": "Deux engagements incompatibles",
+          "question": "Quels engagements se disputent la même ressource ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "ressource",
+          "title": "La ressource qui manque",
+          "question": "De quoi ai-je besoin pour avancer ?",
+          "status": "TO_PRODUCE"
+        }
+      ]
+    },
+    {
+      "id": "discipline",
+      "label": "Discipline",
+      "purpose": "Rendre une pratique possible, soutenable et révisable.",
+      "topics": [
+        {
+          "id": "donner-occasion-au-geste",
+          "title": "Donner une occasion au geste",
+          "question": "À quel signal précis pourrai-je commencer ?",
+          "status": "DRAFT_REVIEWABLE"
+        },
+        {
+          "id": "lieu",
+          "title": "Un lieu qui aide",
+          "question": "Que dois-je préparer pour rendre ce geste possible ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "rythme",
+          "title": "Un rythme habitable",
+          "question": "Quel effort puis-je soutenir dans ma situation ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "reprendre",
+          "title": "Reprendre sans effacer",
+          "question": "Que m’apprend une interruption ?",
+          "status": "TO_PRODUCE"
+        }
+      ]
+    },
+    {
+      "id": "strategie",
+      "label": "Stratégie",
+      "purpose": "Choisir un chemin dans un monde incertain et partagé.",
+      "topics": [
+        {
+          "id": "renoncer",
+          "title": "Choisir implique renoncer",
+          "question": "À quoi dis-je non pour rendre ce choix possible ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "tester",
+          "title": "Tester avant d’étendre",
+          "question": "Quelle expérience réduirait une incertitude importante ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "plusieurs",
+          "title": "Avancer à plusieurs",
+          "question": "Qui détient une partie de la solution ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "second-effet",
+          "title": "Regarder le second effet",
+          "question": "Que pourrait provoquer ma solution après son premier effet ?",
+          "status": "TO_PRODUCE"
+        }
+      ]
+    },
+    {
+      "id": "nuit",
+      "label": "Nuit intérieure",
+      "purpose": "Accueillir le doute et les limites sans promettre de les abolir.",
+      "topics": [
+        {
+          "id": "certitude",
+          "title": "Lorsque la certitude cède",
+          "question": "Qu’est-ce qui reste praticable quand je ne sais plus ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "seul",
+          "title": "Être seul, rester relié",
+          "question": "Quel lien ai-je envie de préserver ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "temps",
+          "title": "Le temps d’une vie",
+          "question": "Que rend précieux le fait que le temps soit limité ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "sens",
+          "title": "Le sens en construction",
+          "question": "Qu’est-ce qui mérite mon engagement aujourd’hui ?",
+          "status": "TO_PRODUCE"
+        }
+      ]
+    },
+    {
+      "id": "transmission",
+      "label": "Transmission",
+      "purpose": "Faire circuler le savoir avec fidélité, attention et responsabilité.",
+      "topics": [
+        {
+          "id": "ecouter",
+          "title": "Écouter avant d’expliquer",
+          "question": "Qu’a besoin de comprendre la personne en face ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "exemple",
+          "title": "Un exemple qui éclaire",
+          "question": "Quel exemple rend cette idée saisissable ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "trace",
+          "title": "Laisser une trace utile",
+          "question": "Que faut-il conserver pour que quelqu’un puisse reprendre ?",
+          "status": "TO_PRODUCE"
+        },
+        {
+          "id": "deformer",
+          "title": "Transmettre sans déformer",
+          "question": "Qu’ai-je simplifié, et qu’ai-je risqué de perdre ?",
+          "status": "TO_PRODUCE"
+        }
+      ]
+    }
+  ]
+}

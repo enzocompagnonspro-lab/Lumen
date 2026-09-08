@@ -1,0 +1,23 @@
+{
+  "product": "LUMEN",
+  "release": "1.7.0-real.01",
+  "mission": "LUMEN-REAL-01 — GOLDEN JOURNEY",
+  "status": "CANDIDATE_REVIEW",
+  "base": "LUMEN-OPERATING-SYSTEM-V1.6-PRIME",
+  "canon_change": false,
+  "public_release": false,
+  "browser_certification": {
+    "desktop": "PENDING_OBSERVED_WINDOWS_CHROME",
+    "mobile": "PENDING_OBSERVED_WINDOWS_CHROME",
+    "reason": "Current build environment blocks local browser URLs; certification script is included for the user Chrome environment."
+  },
+  "independent_review": "BLOCKED_UNTIL_EVIDENCE",
+  "human_gate": "BLOCKED_UNTIL_REVIEW",
+  "technical_qa": "PASS",
+  "tests": {
+    "os_real": "16/16 PASS",
+    "prime": "12/12 PASS",
+    "javascript_syntax": "PASS",
+    "python_compile": "PASS"
+  }
+}

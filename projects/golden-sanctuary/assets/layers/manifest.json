@@ -1,0 +1,109 @@
+{
+  "version": "01R",
+  "source": "assets/canon/01_SANCTUAIRE.png",
+  "layers": [
+    {
+      "file": "00_BASE_PLATE.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "f88aa24f0fd6f3c0ccb04807510ee35d0a4eaf7df957f5cbbd586c09a07b7ad2"
+    },
+    {
+      "file": "01_WORLD_FAR.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "55f48e9b1fd80dfdc820d35e4c0a8de4625dbac808c1513eed3a1e6d50dc2a9d",
+      "alpha_bbox": [
+        539,
+        89,
+        1142,
+        567
+      ],
+      "alpha_pixels": 285386
+    },
+    {
+      "file": "02_CLOUDS_MID.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "7278f95c38b8932fccb84cd42f215a419abffa6b26cfd106da7eef6fad270d49",
+      "alpha_bbox": [
+        547,
+        156,
+        1133,
+        557
+      ],
+      "alpha_pixels": 56138
+    },
+    {
+      "file": "03_ARCHITECTURE_FOREGROUND.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "a3d5872de868e6912f65816b457bb4bea454aca1b0c57fb10621e02c46600500",
+      "alpha_bbox": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "alpha_pixels": 1264306
+    },
+    {
+      "file": "04_TRAVELER.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "1f509eb7d6b6d8e88c08116ffff4e399e2acbee1add3fa6099e2039cc6658cab",
+      "alpha_bbox": [
+        753,
+        363,
+        890,
+        522
+      ],
+      "alpha_pixels": 13811
+    },
+    {
+      "file": "05_PORTAL_LIGHT.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "d5c7aac50d7640fbceb86b3bb533c5145c8f0b464ccc59d6bf3355bf5c72636a",
+      "alpha_bbox": [
+        686,
+        178,
+        985,
+        550
+      ],
+      "alpha_pixels": 98070
+    },
+    {
+      "file": "06_GOLD_FIRE_FX.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "ad2f655a61bcad372d2f6fbe6a6a5b1d572cd1fc425aafc07a6a97dc27b72765",
+      "alpha_bbox": [
+        26,
+        0,
+        1648,
+        941
+      ],
+      "alpha_pixels": 234516
+    },
+    {
+      "file": "07_UI_FOREGROUND.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "bc9e6ae1a3bcfda09d665f429f5a913e08e73ecd4f3c5a9aca12cf8be48ec295",
+      "alpha_bbox": [
+        65,
+        510,
+        1616,
+        926
+      ],
+      "alpha_pixels": 645148
+    },
+    {
+      "file": "08_DEPTH_MAP.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "10e148b2bd3c9d4da91201b29c95fbc8e8f16d9745d051010252786ebe43b763"
+    }
+  ]
+}

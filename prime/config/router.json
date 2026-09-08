@@ -1,0 +1,92 @@
+{
+  "routes": [
+    {
+      "match": [
+        "source",
+        "preuve",
+        "référence",
+        "citation",
+        "recherche",
+        "vérifier"
+      ],
+      "expert": "SOURCE_SCOUT"
+    },
+    {
+      "match": [
+        "expliquer",
+        "comprendre",
+        "synthèse",
+        "analyse",
+        "idée"
+      ],
+      "expert": "TRUTH_SYNTHESIZER"
+    },
+    {
+      "match": [
+        "bibliothèque",
+        "connaissance",
+        "article",
+        "cours",
+        "auteur",
+        "thème"
+      ],
+      "expert": "KNOWLEDGE_ARCHITECT"
+    },
+    {
+      "match": [
+        "parcours",
+        "chambre",
+        "progression",
+        "étape",
+        "voyage"
+      ],
+      "expert": "JOURNEY_GUIDE"
+    },
+    {
+      "match": [
+        "agir",
+        "rituel",
+        "mission",
+        "routine",
+        "discipline",
+        "objectif"
+      ],
+      "expert": "PRACTICE_COACH"
+    },
+    {
+      "match": [
+        "visuel",
+        "interface",
+        "canon",
+        "design",
+        "sanctuaire",
+        "image"
+      ],
+      "expert": "VISUAL_GUARDIAN"
+    },
+    {
+      "match": [
+        "vidéo",
+        "shot",
+        "render",
+        "montage",
+        "cinématique"
+      ],
+      "expert": "VIDEO_DIRECTOR"
+    },
+    {
+      "match": [
+        "review",
+        "revue",
+        "qa",
+        "valider",
+        "audit",
+        "gate"
+      ],
+      "expert": "INDEPENDENT_REVIEWER"
+    }
+  ],
+  "fallback": "GOVERNOR",
+  "multi_route": true,
+  "max_parallel_experts": 3
+}

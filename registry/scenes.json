@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "scenes": [
+    {
+      "id": "SANCTUAIRE",
+      "asset_id": "SANCTUAIRE",
+      "status": "GOLDEN_PROTECTED_T008_APPROVED",
+      "priority": 1,
+      "route": "/",
+      "links_to": [
+        "BIBLIOTHEQUE",
+        "CARTE_DU_VOYAGE"
+      ]
+    },
+    {
+      "id": "BIBLIOTHEQUE",
+      "asset_id": "BIBLIOTHEQUE",
+      "status": "LIVING_01_ACTIVE",
+      "priority": 2,
+      "route": "/connaissances",
+      "links_to": [
+        "SANCTUAIRE",
+        "ARTICLE_MONDE_LUCIDE"
+      ]
+    },
+    {
+      "id": "CARTE_DU_VOYAGE",
+      "asset_id": "CARTE_DU_VOYAGE",
+      "status": "CANON_REFERENCE",
+      "priority": 3,
+      "route": "/journey",
+      "links_to": [
+        "SANCTUAIRE",
+        "DISCIPLINE"
+      ]
+    },
+    {
+      "id": "DISCIPLINE",
+      "asset_id": "DISCIPLINE",
+      "status": "CANON_REFERENCE",
+      "priority": 4,
+      "route": "/discipline",
+      "links_to": [
+        "CARTE_DU_VOYAGE"
+      ]
+    },
+    {
+      "id": "RITUEL_MATIN",
+      "asset_id": "RITUEL_MATIN",
+      "status": "CANON_REFERENCE",
+      "priority": 5,
+      "route": "/journey/rituel-matin",
+      "links_to": [
+        "DISCIPLINE"
+      ]
+    },
+    {
+      "id": "ARTICLE_MONDE_LUCIDE",
+      "asset_id": "ARTICLE_MONDE_LUCIDE",
+      "status": "LIVING_01_ACTIVE",
+      "priority": 6,
+      "route": "/connaissances/monde-lucide",
+      "links_to": [
+        "BIBLIOTHEQUE"
+      ]
+    }
+  ]
+}

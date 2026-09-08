@@ -1,0 +1,36 @@
+{
+  "ts": "2026-09-07T12:58:27.028980+00:00",
+  "result": "PENDING_BROWSER_OBSERVATION",
+  "ok": false,
+  "checks": [
+    {
+      "name": "exact_canon_background",
+      "ok": true,
+      "detail": "e056e7f7ab8b71cd82a05763d8390d61bc5afa50c5c50d1a34b21b90e1a72bb1"
+    },
+    {
+      "name": "three_paths_present",
+      "ok": true
+    },
+    {
+      "name": "no_community",
+      "ok": true
+    },
+    {
+      "name": "restrained_motion_code_present",
+      "ok": true
+    },
+    {
+      "name": "canonical_library_transition_code",
+      "ok": true
+    },
+    {
+      "name": "browser_render_observed",
+      "ok": false,
+      "detail": "NOT_OBSERVED"
+    }
+  ],
+  "limitations": [
+    "Browser rendering must be observed before visual PASS"
+  ]
+}

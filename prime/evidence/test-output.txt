@@ -1,0 +1,11 @@
+
+test_gate (test_lumen_prime.T.test_gate) ... ok
+test_no_community (test_lumen_prime.T.test_no_community) ... ok
+test_source (test_lumen_prime.T.test_source) ... ok
+test_validate (test_lumen_prime.T.test_validate) ... ok
+test_visual (test_lumen_prime.T.test_visual) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 4.042s
+
+OK

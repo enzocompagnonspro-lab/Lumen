@@ -1,0 +1,8 @@
+test_assets_exist (test_lumen_os.TestLumenOS.test_assets_exist) ... ok
+test_canon (test_lumen_os.TestLumenOS.test_canon) ... ok
+test_cli_validation (test_lumen_os.TestLumenOS.test_cli_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.641s
+
+OK

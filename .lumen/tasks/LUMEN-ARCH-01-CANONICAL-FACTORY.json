@@ -1,0 +1,35 @@
+{
+  "id": "LUMEN-ARCH-01-CANONICAL-FACTORY",
+  "objective": "Create the single canonical engineering factory for LUMEN so ChatGPT/LUMEN Governor can direct Codex through reviewable TaskContracts without manual patch copying.",
+  "authority": {
+    "read": true,
+    "isolated_code_write": true,
+    "tests": true,
+    "branch": true,
+    "pull_request": true,
+    "preview": true,
+    "merge": false,
+    "production_deploy": false,
+    "canonical_change": false,
+    "paid_external_action": false
+  },
+  "constraints": [
+    "Use enzocompagnonspro-lab/Lumen as target canonical repository after write access is restored.",
+    "Do not change Golden Sanctuary canonical assets.",
+    "Do not silently mark historical gates PASS.",
+    "Do not add Community.",
+    "Preserve evidence labels OBSERVED/REPORTED/INFERRED/UNKNOWN.",
+    "No production effects."
+  ],
+  "acceptance": [
+    "Latest approved LUMEN source imported with provenance.",
+    "AGENTS.md installed.",
+    "TaskContract schema installed.",
+    "Codex Bridge executes on isolated branch.",
+    "CI exact-head checks run.",
+    "Golden hash guard passes.",
+    "Playwright can generate desktop/mobile evidence.",
+    "Vercel preview is PR-scoped or remains disabled until configured.",
+    "PR is ready for independent review; not merged."
+  ]
+}

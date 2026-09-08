@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "request"
+  ],
+  "properties": {
+    "request": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scene": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "journey_chamber": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "risk": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "requires_sources": {
+      "type": "boolean"
+    },
+    "requires_canon": {
+      "type": "boolean"
+    }
+  }
+}
