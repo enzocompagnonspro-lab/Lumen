@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $evidence = Join-Path $root "evidence\real-01\windows"
 New-Item -ItemType Directory -Force -Path $evidence | Out-Null
@@ -102,13 +102,51 @@ try {
    @{n="mobile-workshop.png"; size="390,844"; url=$base+"?qa=workshop"},
    @{n="mobile-transmission.png"; size="390,844"; url=$base+"?qa=transmission"}
  )
+ function Invoke-LumenChromeScreenshot([string]$Url,[string]$Size,[string]$Out,[string]$Name) {
+   if (Test-Path $Out) { Remove-Item $Out -Force }
+
+   $stdout = Join-Path $evidence ($Name + ".chrome.stdout.txt")
+   $stderr = Join-Path $evidence ($Name + ".chrome.stderr.txt")
+   Remove-Item $stdout,$stderr -Force -ErrorAction SilentlyContinue
+
+   $args = @(
+     "--headless=new",
+     "--hide-scrollbars",
+     "--disable-gpu",
+     "--no-first-run",
+     "--no-default-browser-check",
+     "--window-size=$Size",
+     "--screenshot=$Out",
+     $Url
+   )
+
+   $proc = Start-Process -FilePath $chrome `
+     -ArgumentList $args `
+     -NoNewWindow -Wait -PassThru `
+     -RedirectStandardOutput $stdout `
+     -RedirectStandardError $stderr
+
+   if ($proc.ExitCode -ne 0) {
+     throw "REAL01_CAPTURE_CHROME_FAIL: name=$Name exit=$($proc.ExitCode)"
+   }
+
+   $deadline = (Get-Date).AddSeconds(12)
+   while ((-not (Test-Path $Out)) -and (Get-Date) -lt $deadline) {
+     Start-Sleep -Milliseconds 250
+   }
+
+   if (-not (Test-Path $Out)) {
+     throw "REAL01_CAPTURE_MISSING: $Name"
+   }
+
+   if ((Get-Item $Out).Length -lt 10000) {
+     throw "REAL01_CAPTURE_TOO_SMALL: $Name bytes=$((Get-Item $Out).Length)"
+   }
+ }
+
  foreach ($s in $shots) {
    $p = Join-Path $evidence $s.n
-   if (Test-Path $p) { Remove-Item $p -Force }
-   & $chrome --headless=new --hide-scrollbars --disable-gpu --no-first-run --window-size=$($s.size) --screenshot=$p $($s.url) | Out-Null
-   $deadline = (Get-Date).AddSeconds(12)
-   while ((-not (Test-Path $p)) -and (Get-Date) -lt $deadline) { Start-Sleep -Milliseconds 250 }
-   if (-not (Test-Path $p) -or (Get-Item $p).Length -lt 10000) { throw "REAL01_CAPTURE_FAIL: $($s.n)" }
+   Invoke-LumenChromeScreenshot $s.url $s.size $p $s.n
  }
  Write-Host "REAL-01 DESKTOP/MOBILE CAPTURES PASS"
  $manifest = [ordered]@{
@@ -145,3 +183,4 @@ try {
 } finally {
  if ($server -and -not $server.HasExited) { Stop-Process -Id $server.Id -Force }
 }
+
