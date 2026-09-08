@@ -18,6 +18,10 @@ class Handler(BaseHTTPRequestHandler):
         try: rp=p.resolve(strict=True)
         except FileNotFoundError: return self.send_error(404)
         if PROJECT not in rp.parents and rp!=PROJECT: return self.send_error(403)
+        if rp.is_dir():
+            try: rp=(rp/'index.html').resolve(strict=True)
+            except FileNotFoundError: return self.send_error(404)
+            if PROJECT not in rp.parents: return self.send_error(403)
         if not rp.is_file(): return self.send_error(404)
         data=rp.read_bytes(); typ=mimetypes.guess_type(str(rp))[0] or 'application/octet-stream'
         self.send_response(200); self.send_header('Content-Type',typ); self.send_header('Content-Length',str(len(data))); self.send_header('X-Content-Type-Options','nosniff'); self.send_header('Cache-Control','no-store'); self.end_headers()
